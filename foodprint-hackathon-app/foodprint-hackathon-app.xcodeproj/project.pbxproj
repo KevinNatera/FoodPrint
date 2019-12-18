@@ -10,7 +10,6 @@
 		EAF10E6023AA9435009A1AD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E5F23AA9435009A1AD3 /* AppDelegate.swift */; };
 		EAF10E6223AA9435009A1AD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E6123AA9435009A1AD3 /* SceneDelegate.swift */; };
 		EAF10E6423AA9435009A1AD3 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E6323AA9435009A1AD3 /* SettingsVC.swift */; };
-		EAF10E6723AA9435009A1AD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF10E6523AA9435009A1AD3 /* Main.storyboard */; };
 		EAF10E6923AA9436009A1AD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF10E6823AA9436009A1AD3 /* Assets.xcassets */; };
 		EAF10E6C23AA9436009A1AD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF10E6A23AA9436009A1AD3 /* LaunchScreen.storyboard */; };
 		EAF10E7A23AA94AA009A1AD3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E7923AA94AA009A1AD3 /* NetworkManager.swift */; };
@@ -30,7 +29,6 @@
 		EAF10E5F23AA9435009A1AD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF10E6123AA9435009A1AD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EAF10E6323AA9435009A1AD3 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
-		EAF10E6623AA9435009A1AD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EAF10E6823AA9436009A1AD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAF10E6B23AA9436009A1AD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAF10E6D23AA9436009A1AD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 				EAF10E7423AA9463009A1AD3 /* Controllers */,
 				EAF10E7623AA9475009A1AD3 /* Views */,
 				EAF10E7323AA945C009A1AD3 /* Supporting Files */,
-				EAF10E6523AA9435009A1AD3 /* Main.storyboard */,
 				EAF10E6D23AA9436009A1AD3 /* Info.plist */,
 			);
 			path = "foodprint-hackathon-app";
@@ -205,7 +202,6 @@
 			files = (
 				EAF10E6C23AA9436009A1AD3 /* LaunchScreen.storyboard in Resources */,
 				EAF10E6923AA9436009A1AD3 /* Assets.xcassets in Resources */,
-				EAF10E6723AA9435009A1AD3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,14 +231,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EAF10E6523AA9435009A1AD3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EAF10E6623AA9435009A1AD3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EAF10E6A23AA9436009A1AD3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
