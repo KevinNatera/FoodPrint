@@ -30,7 +30,7 @@ extension SettingsVC {
             welcomeLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             welcomeLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             welcomeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            welcomeLabel.widthAnchor.constraint(equalToConstant: 50)
+            welcomeLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
         
     }
@@ -39,7 +39,7 @@ extension SettingsVC {
         inputStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            inputStackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 10),
+            inputStackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 30),
             inputStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             inputStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             inputStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
@@ -51,10 +51,10 @@ extension SettingsVC {
         goalStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            goalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+            goalStackView.topAnchor.constraint(equalTo: inputStackView.bottomAnchor, constant: 20),
             goalStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             goalStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            goalStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            goalStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
         
     }
