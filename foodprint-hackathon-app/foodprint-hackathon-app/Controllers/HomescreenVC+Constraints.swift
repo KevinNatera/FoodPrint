@@ -53,9 +53,16 @@ extension HomescreenVC {
             progressStackView.topAnchor.constraint(equalTo: userInfoStackView.bottomAnchor, constant: 30),
             progressStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5),
             progressStackView.centerXAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.centerXAnchor),
+            
             progressLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            
             calorieProgressView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            emissionsProgressView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+            calorieProgressView.heightAnchor.constraint(equalTo: progressStackView.heightAnchor, multiplier: 0.4),
+            calorieProgressView.widthAnchor.constraint(equalTo: calorieProgressView.heightAnchor),
+            
+            emissionsProgressView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            emissionsProgressView.heightAnchor.constraint(equalTo: progressStackView.heightAnchor, multiplier: 0.4),
+            emissionsProgressView.widthAnchor.constraint(equalTo: emissionsProgressView.heightAnchor)
             
         ])
     }
