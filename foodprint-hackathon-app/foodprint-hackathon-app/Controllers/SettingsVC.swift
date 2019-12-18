@@ -11,7 +11,7 @@ import UIKit
 class SettingsVC: UIViewController {
     //MARK: - UI Objects
     //TODO: Refactor later to change input method (i.e. picker?)
-    //TODO: Style objects (text, slider color, button color, spacing)
+    //TODO: Style objects (text, slider color, button color, spacing)s
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome!"
@@ -40,6 +40,7 @@ class SettingsVC: UIViewController {
     lazy var submitButton: UIButton = {
         let button = UIButton()
         button.setTitle("Enter", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
         return button
     }()
     
@@ -83,7 +84,7 @@ class SettingsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .lightGray
         
         addSubviews()
         addConstraints()
