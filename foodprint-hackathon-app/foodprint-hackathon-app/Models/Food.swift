@@ -23,7 +23,7 @@ class Food: Codable{
         self.servings = servings
     }
     
-    static let nutrition: [Food] = [
+    static let foodList: [Food] = [
         Food(name: "Fries", calories: 365, carbonEmissionsKgPerServing: 0.672, gramPerServing: 117, servings: nil),
         Food(name: "Cheese", calories: 113, carbonEmissionsKgPerServing: 0.242, gramPerServing: 28, servings: nil),
         Food(name: "Bacon", calories: 161, carbonEmissionsKgPerServing: 0.212, gramPerServing: 35, servings: nil),
