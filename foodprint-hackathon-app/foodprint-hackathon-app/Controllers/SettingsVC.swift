@@ -11,6 +11,13 @@ import UIKit
 class SettingsVC: UIViewController {
     //MARK: - UI Objects
     //TODO: Refactor later to change input method (i.e. picker?)
+    
+    lazy var welcomeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Welcome!"
+        return label
+    }()
+    
     lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Enter Name"
