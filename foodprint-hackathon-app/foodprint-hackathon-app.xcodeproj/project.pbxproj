@@ -22,6 +22,7 @@
 		EAF10E8823AA95E2009A1AD3 /* FoodHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E8723AA95E2009A1AD3 /* FoodHistoryVC.swift */; };
 		EAF10E8A23AA9608009A1AD3 /* SearchFoodTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E8923AA9608009A1AD3 /* SearchFoodTVCell.swift */; };
 		EAF10E8C23AA9615009A1AD3 /* FoodHistoryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E8B23AA9615009A1AD3 /* FoodHistoryTVCell.swift */; };
+		EAF10E8E23AAAC69009A1AD3 /* FoodHistoryVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E8D23AAAC69009A1AD3 /* FoodHistoryVC+Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		EAF10E8723AA95E2009A1AD3 /* FoodHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodHistoryVC.swift; sourceTree = "<group>"; };
 		EAF10E8923AA9608009A1AD3 /* SearchFoodTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodTVCell.swift; sourceTree = "<group>"; };
 		EAF10E8B23AA9615009A1AD3 /* FoodHistoryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodHistoryTVCell.swift; sourceTree = "<group>"; };
+		EAF10E8D23AAAC69009A1AD3 /* FoodHistoryVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodHistoryVC+Constraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				EAF10E8323AA95C8009A1AD3 /* SearchFoodVC.swift */,
 				EAF10E8523AA95D6009A1AD3 /* FoodDetailsVC.swift */,
 				EAF10E8723AA95E2009A1AD3 /* FoodHistoryVC.swift */,
+				EAF10E8D23AAAC69009A1AD3 /* FoodHistoryVC+Constraints.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				EAF10E8A23AA9608009A1AD3 /* SearchFoodTVCell.swift in Sources */,
 				EAF10E8823AA95E2009A1AD3 /* FoodHistoryVC.swift in Sources */,
 				EAF10E6423AA9435009A1AD3 /* SettingsVC.swift in Sources */,
+				EAF10E8E23AAAC69009A1AD3 /* FoodHistoryVC+Constraints.swift in Sources */,
 				EAF10E6023AA9435009A1AD3 /* AppDelegate.swift in Sources */,
 				EAF10E6223AA9435009A1AD3 /* SceneDelegate.swift in Sources */,
 				EAF10E7E23AA94CC009A1AD3 /* Food.swift in Sources */,
