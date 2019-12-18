@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class AppUser {
+    
+    var name: String
+    var height: Double
+    var weight: Double
+    
+    init(name: String, height: Double , weight: Double){
+        self.name = name
+        self.height = height
+        self.weight = weight
+    }
+    
+    
+}
