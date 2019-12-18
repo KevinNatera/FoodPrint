@@ -8,30 +8,32 @@
 
 import Foundation
 
-final class FoodNutrition {
+class Food: Codable{
     var name: String
-    var calories: Double
-    var servings: Double
-    var carbon_kg: Double
-    var gramPerServing: Int
+    var calories: Int
+    var carbonEmissionsKgPerServing: Double
+    var gramsPerServing: Int
+    var servings: Double?
     
-    init(name: String, calories: Double, servings: Double, carbon_kg: Double, gramPerServing: Int){
+    init(name: String, calories: Int, carbonEmissionsKgPerServing: Double, gramPerServing: Int, servings: Double?){
         self.name = name
         self.calories = calories
+        self.carbonEmissionsKgPerServing = carbonEmissionsKgPerServing
+        self.gramsPerServing = gramPerServing
         self.servings = servings
-        self.carbon_kg = carbon_kg
-        self.gramPerServing = gramPerServing
     }
     
-    static let nutrition: [FoodNutrition] = [
-    
-        FoodNutrition(name: "fries", calories: 365, servings: 1, carbon_kg: 0.672, gramPerServing: 117),
-        FoodNutrition(name: "cheese", calories: 113, servings: 1, carbon_kg: 0.242, gramPerServing: 28),
-        FoodNutrition(name: "bacon", calories: 161, servings: 3, carbon_kg: 0.212, gramPerServing: 35),
-        FoodNutrition(name: "tomato", calories: 22, servings: 1, carbon_kg: 0.064, gramPerServing: 123),
-        FoodNutrition(name: "onion", calories: 41, servings: 1, carbon_kg: 0.035, gramPerServing: 94),
-        FoodNutrition(name: "pickles", calories: 4.2, servings: 1, carbon_kg: 0.030, gramPerServing: 35)
-    
+    static let nutrition: [Food] = [
+        Food(name: "Fries", calories: 365, carbonEmissionsKgPerServing: 0.672, gramPerServing: 117, servings: nil),
+        Food(name: "Cheese", calories: 113, carbonEmissionsKgPerServing: 0.242, gramPerServing: 28, servings: nil),
+        Food(name: "Bacon", calories: 161, carbonEmissionsKgPerServing: 0.212, gramPerServing: 35, servings: nil),
+        Food(name: "Tomato", calories: 22, carbonEmissionsKgPerServing: 0.064, gramPerServing: 123, servings: nil),
+        Food(name: "Onion", calories: 41, carbonEmissionsKgPerServing: 0.035, gramPerServing: 94, servings: nil),
+        Food(name: "Pickles", calories: 4, carbonEmissionsKgPerServing: 0.03, gramPerServing: 35, servings: nil),
+        Food(name: "Burger Bun", calories: 128, carbonEmissionsKgPerServing: 0.05, gramPerServing: 46, servings: nil),
+        Food(name: "Beef Patty", calories: 197, carbonEmissionsKgPerServing: 0.838, gramPerServing: 85, servings: nil),
+        Food(name: "Lettuce", calories: 2, carbonEmissionsKgPerServing: 0.003, gramPerServing: 12, servings: nil),
+        Food(name: "Veggie Patty", calories: 124, carbonEmissionsKgPerServing: 0.308, gramPerServing: 85, servings: nil)
     ]
 }
 
