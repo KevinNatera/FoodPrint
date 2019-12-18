@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 extension SettingsVC {
+    
     //MARK: - UI Constraints
+    
     func addSubviews() {
         view.addSubview(welcomeLabel)
         view.addSubview(inputStackView)
@@ -60,6 +62,5 @@ extension SettingsVC {
             calorieSlider.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
             emissionsSlider.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8)
         ])
-        
     }
 }

@@ -24,6 +24,7 @@
 		EAF10E8C23AA9615009A1AD3 /* FoodHistoryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E8B23AA9615009A1AD3 /* FoodHistoryTVCell.swift */; };
 		EAF10E8E23AAAC69009A1AD3 /* FoodHistoryVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E8D23AAAC69009A1AD3 /* FoodHistoryVC+Constraints.swift */; };
 		EAF10E9223AAB64E009A1AD3 /* SettingsVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E9123AAB64E009A1AD3 /* SettingsVC+Constraints.swift */; };
+		EAF10E9423AAD1D7009A1AD3 /* HomescreenVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E9323AAD1D7009A1AD3 /* HomescreenVC+Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		EAF10E8B23AA9615009A1AD3 /* FoodHistoryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodHistoryTVCell.swift; sourceTree = "<group>"; };
 		EAF10E8D23AAAC69009A1AD3 /* FoodHistoryVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodHistoryVC+Constraints.swift"; sourceTree = "<group>"; };
 		EAF10E9123AAB64E009A1AD3 /* SettingsVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC+Constraints.swift"; sourceTree = "<group>"; };
+		EAF10E9323AAD1D7009A1AD3 /* HomescreenVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomescreenVC+Constraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				EAF10E6323AA9435009A1AD3 /* SettingsVC.swift */,
 				EAF10E9123AAB64E009A1AD3 /* SettingsVC+Constraints.swift */,
 				EAF10E8123AA9540009A1AD3 /* HomescreenVC.swift */,
+				EAF10E9323AAD1D7009A1AD3 /* HomescreenVC+Constraints.swift */,
 				EAF10E8323AA95C8009A1AD3 /* SearchFoodVC.swift */,
 				EAF10E8523AA95D6009A1AD3 /* FoodDetailsVC.swift */,
 				EAF10E8723AA95E2009A1AD3 /* FoodHistoryVC.swift */,
@@ -232,6 +235,7 @@
 				EAF10E6023AA9435009A1AD3 /* AppDelegate.swift in Sources */,
 				EAF10E6223AA9435009A1AD3 /* SceneDelegate.swift in Sources */,
 				EAF10E7E23AA94CC009A1AD3 /* Food.swift in Sources */,
+				EAF10E9423AAD1D7009A1AD3 /* HomescreenVC+Constraints.swift in Sources */,
 				EAF10E8223AA9540009A1AD3 /* HomescreenVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

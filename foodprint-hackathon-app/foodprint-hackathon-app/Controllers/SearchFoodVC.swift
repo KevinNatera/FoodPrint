@@ -10,6 +10,7 @@ import UIKit
 
 class SearchFoodVC: UIViewController {
     
+    //MARK: - Properties
     lazy var searchBar: UISearchBar = {
         let searchbar = UISearchBar()
         searchbar.delegate = self

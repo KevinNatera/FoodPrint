@@ -10,6 +10,7 @@ import UIKit
 
 class SearchFoodTVCell: UITableViewCell {
     
+    //MARK: - Properties
     lazy var foodNameLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .green
@@ -46,6 +47,7 @@ class SearchFoodTVCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Private Methods
     
     private func addSubViews() {
         contentView.addSubview(foodNameLabel)
