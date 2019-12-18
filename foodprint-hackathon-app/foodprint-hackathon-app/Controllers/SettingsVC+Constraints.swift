@@ -49,12 +49,16 @@ extension SettingsVC {
     
     private func setGoalStackViewConstraints() {
         goalStackView.translatesAutoresizingMaskIntoConstraints = false
+        calorieSlider.translatesAutoresizingMaskIntoConstraints = false
+        emissionsSlider.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             goalStackView.topAnchor.constraint(equalTo: inputStackView.bottomAnchor, constant: 20),
             goalStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             goalStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            goalStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            goalStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            calorieSlider.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
+            emissionsSlider.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8)
         ])
         
     }
