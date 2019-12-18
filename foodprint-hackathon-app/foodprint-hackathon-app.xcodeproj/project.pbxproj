@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EAF10E6023AA9435009A1AD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E5F23AA9435009A1AD3 /* AppDelegate.swift */; };
+		EAF10E6223AA9435009A1AD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E6123AA9435009A1AD3 /* SceneDelegate.swift */; };
+		EAF10E6423AA9435009A1AD3 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E6323AA9435009A1AD3 /* SettingsVC.swift */; };
+		EAF10E6723AA9435009A1AD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF10E6523AA9435009A1AD3 /* Main.storyboard */; };
+		EAF10E6923AA9436009A1AD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF10E6823AA9436009A1AD3 /* Assets.xcassets */; };
+		EAF10E6C23AA9436009A1AD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF10E6A23AA9436009A1AD3 /* LaunchScreen.storyboard */; };
+		EAF10E7A23AA94AA009A1AD3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E7923AA94AA009A1AD3 /* NetworkManager.swift */; };
+		EAF10E7C23AA94C3009A1AD3 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E7B23AA94C3009A1AD3 /* PersistenceManager.swift */; };
+		EAF10E7E23AA94CC009A1AD3 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E7D23AA94CC009A1AD3 /* Food.swift */; };
+		EAF10E8023AA94D9009A1AD3 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E7F23AA94D9009A1AD3 /* AppUser.swift */; };
+		EAF10E8223AA9540009A1AD3 /* HomescreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E8123AA9540009A1AD3 /* HomescreenVC.swift */; };
+		EAF10E8423AA95C8009A1AD3 /* SearchFoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E8323AA95C8009A1AD3 /* SearchFoodVC.swift */; };
+		EAF10E8623AA95D6009A1AD3 /* FoodDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E8523AA95D6009A1AD3 /* FoodDetailsVC.swift */; };
+		EAF10E8823AA95E2009A1AD3 /* FoodHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E8723AA95E2009A1AD3 /* FoodHistoryVC.swift */; };
+		EAF10E8A23AA9608009A1AD3 /* SearchFoodTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E8923AA9608009A1AD3 /* SearchFoodTVCell.swift */; };
+		EAF10E8C23AA9615009A1AD3 /* FoodHistoryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E8B23AA9615009A1AD3 /* FoodHistoryTVCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EAF10E5C23AA9435009A1AD3 /* foodprint-hackathon-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "foodprint-hackathon-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF10E5F23AA9435009A1AD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EAF10E6123AA9435009A1AD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EAF10E6323AA9435009A1AD3 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		EAF10E6623AA9435009A1AD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAF10E6823AA9436009A1AD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAF10E6B23AA9436009A1AD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EAF10E6D23AA9436009A1AD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAF10E7923AA94AA009A1AD3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		EAF10E7B23AA94C3009A1AD3 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		EAF10E7D23AA94CC009A1AD3 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		EAF10E7F23AA94D9009A1AD3 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		EAF10E8123AA9540009A1AD3 /* HomescreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenVC.swift; sourceTree = "<group>"; };
+		EAF10E8323AA95C8009A1AD3 /* SearchFoodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodVC.swift; sourceTree = "<group>"; };
+		EAF10E8523AA95D6009A1AD3 /* FoodDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsVC.swift; sourceTree = "<group>"; };
+		EAF10E8723AA95E2009A1AD3 /* FoodHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodHistoryVC.swift; sourceTree = "<group>"; };
+		EAF10E8923AA9608009A1AD3 /* SearchFoodTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodTVCell.swift; sourceTree = "<group>"; };
+		EAF10E8B23AA9615009A1AD3 /* FoodHistoryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodHistoryTVCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAF10E5923AA9435009A1AD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAF10E5323AA9435009A1AD3 = {
+			isa = PBXGroup;
+			children = (
+				EAF10E5E23AA9435009A1AD3 /* foodprint-hackathon-app */,
+				EAF10E5D23AA9435009A1AD3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EAF10E5D23AA9435009A1AD3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAF10E5C23AA9435009A1AD3 /* foodprint-hackathon-app.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAF10E5E23AA9435009A1AD3 /* foodprint-hackathon-app */ = {
+			isa = PBXGroup;
+			children = (
+				EAF10E7823AA948B009A1AD3 /* Networking */,
+				EAF10E7723AA9486009A1AD3 /* Persistence */,
+				EAF10E7523AA946B009A1AD3 /* Models */,
+				EAF10E7423AA9463009A1AD3 /* Controllers */,
+				EAF10E7623AA9475009A1AD3 /* Views */,
+				EAF10E7323AA945C009A1AD3 /* Supporting Files */,
+				EAF10E6523AA9435009A1AD3 /* Main.storyboard */,
+				EAF10E6D23AA9436009A1AD3 /* Info.plist */,
+			);
+			path = "foodprint-hackathon-app";
+			sourceTree = "<group>";
+		};
+		EAF10E7323AA945C009A1AD3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EAF10E5F23AA9435009A1AD3 /* AppDelegate.swift */,
+				EAF10E6123AA9435009A1AD3 /* SceneDelegate.swift */,
+				EAF10E6823AA9436009A1AD3 /* Assets.xcassets */,
+				EAF10E6A23AA9436009A1AD3 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EAF10E7423AA9463009A1AD3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EAF10E6323AA9435009A1AD3 /* SettingsVC.swift */,
+				EAF10E8123AA9540009A1AD3 /* HomescreenVC.swift */,
+				EAF10E8323AA95C8009A1AD3 /* SearchFoodVC.swift */,
+				EAF10E8523AA95D6009A1AD3 /* FoodDetailsVC.swift */,
+				EAF10E8723AA95E2009A1AD3 /* FoodHistoryVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EAF10E7523AA946B009A1AD3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EAF10E7F23AA94D9009A1AD3 /* AppUser.swift */,
+				EAF10E7D23AA94CC009A1AD3 /* Food.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EAF10E7623AA9475009A1AD3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EAF10E8923AA9608009A1AD3 /* SearchFoodTVCell.swift */,
+				EAF10E8B23AA9615009A1AD3 /* FoodHistoryTVCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EAF10E7723AA9486009A1AD3 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				EAF10E7B23AA94C3009A1AD3 /* PersistenceManager.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		EAF10E7823AA948B009A1AD3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				EAF10E7923AA94AA009A1AD3 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAF10E5B23AA9435009A1AD3 /* foodprint-hackathon-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAF10E7023AA9436009A1AD3 /* Build configuration list for PBXNativeTarget "foodprint-hackathon-app" */;
+			buildPhases = (
+				EAF10E5823AA9435009A1AD3 /* Sources */,
+				EAF10E5923AA9435009A1AD3 /* Frameworks */,
+				EAF10E5A23AA9435009A1AD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "foodprint-hackathon-app";
+			productName = "foodprint-hackathon-app";
+			productReference = EAF10E5C23AA9435009A1AD3 /* foodprint-hackathon-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAF10E5423AA9435009A1AD3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Sunni Tang";
+				TargetAttributes = {
+					EAF10E5B23AA9435009A1AD3 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = EAF10E5723AA9435009A1AD3 /* Build configuration list for PBXProject "foodprint-hackathon-app" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAF10E5323AA9435009A1AD3;
+			productRefGroup = EAF10E5D23AA9435009A1AD3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAF10E5B23AA9435009A1AD3 /* foodprint-hackathon-app */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAF10E5A23AA9435009A1AD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF10E6C23AA9436009A1AD3 /* LaunchScreen.storyboard in Resources */,
+				EAF10E6923AA9436009A1AD3 /* Assets.xcassets in Resources */,
+				EAF10E6723AA9435009A1AD3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAF10E5823AA9435009A1AD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF10E8023AA94D9009A1AD3 /* AppUser.swift in Sources */,
+				EAF10E8623AA95D6009A1AD3 /* FoodDetailsVC.swift in Sources */,
+				EAF10E7A23AA94AA009A1AD3 /* NetworkManager.swift in Sources */,
+				EAF10E8C23AA9615009A1AD3 /* FoodHistoryTVCell.swift in Sources */,
+				EAF10E8423AA95C8009A1AD3 /* SearchFoodVC.swift in Sources */,
+				EAF10E7C23AA94C3009A1AD3 /* PersistenceManager.swift in Sources */,
+				EAF10E8A23AA9608009A1AD3 /* SearchFoodTVCell.swift in Sources */,
+				EAF10E8823AA95E2009A1AD3 /* FoodHistoryVC.swift in Sources */,
+				EAF10E6423AA9435009A1AD3 /* SettingsVC.swift in Sources */,
+				EAF10E6023AA9435009A1AD3 /* AppDelegate.swift in Sources */,
+				EAF10E6223AA9435009A1AD3 /* SceneDelegate.swift in Sources */,
+				EAF10E7E23AA94CC009A1AD3 /* Food.swift in Sources */,
+				EAF10E8223AA9540009A1AD3 /* HomescreenVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EAF10E6523AA9435009A1AD3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAF10E6623AA9435009A1AD3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EAF10E6A23AA9436009A1AD3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAF10E6B23AA9436009A1AD3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAF10E6E23AA9436009A1AD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EAF10E6F23AA9436009A1AD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAF10E7123AA9436009A1AD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MQ8KPB58;
+				INFOPLIST_FILE = "foodprint-hackathon-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Pursuit-6.1.foodprint-hackathon-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EAF10E7223AA9436009A1AD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MQ8KPB58;
+				INFOPLIST_FILE = "foodprint-hackathon-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Pursuit-6.1.foodprint-hackathon-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAF10E5723AA9435009A1AD3 /* Build configuration list for PBXProject "foodprint-hackathon-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF10E6E23AA9436009A1AD3 /* Debug */,
+				EAF10E6F23AA9436009A1AD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAF10E7023AA9436009A1AD3 /* Build configuration list for PBXNativeTarget "foodprint-hackathon-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF10E7123AA9436009A1AD3 /* Debug */,
+				EAF10E7223AA9436009A1AD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAF10E5423AA9435009A1AD3 /* Project object */;
+}
