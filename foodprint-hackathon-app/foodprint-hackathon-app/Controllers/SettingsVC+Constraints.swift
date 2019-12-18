@@ -12,20 +12,34 @@ import UIKit
 extension SettingsVC {
     //MARK: - UI Constraints
     func addSubviews() {
+        view.addSubview(welcomeLabel)
         view.addSubview(inputStackView)
         view.addSubview(goalStackView)
     }
     
     func addConstraints() {
+        setWelcomeLabelConstraints()
         setInputStackViewConstraints()
         setGoalStackViewConstraints()
+    }
+    
+    private func setWelcomeLabelConstraints() {
+        welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            welcomeLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            welcomeLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            welcomeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            welcomeLabel.widthAnchor.constraint(equalToConstant: 50)
+        ])
+        
     }
     
     private func setInputStackViewConstraints() {
         inputStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            inputStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            inputStackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 10),
             inputStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             inputStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             inputStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
