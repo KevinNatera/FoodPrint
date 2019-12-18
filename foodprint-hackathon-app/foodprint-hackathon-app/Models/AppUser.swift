@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AppUser {
+class AppUser: Codable {
     
     var name: String
     var height: Double
