@@ -14,16 +14,16 @@ class SearchFoodTVCell: UITableViewCell {
         let label = UILabel()
         label.backgroundColor = .green
         label.frame = CGRect(x: 0, y: 0, width: 200, height: 150)
-        label.text = "yooo"
+        label.text = "foodName"
         label.textAlignment = .center
         return label
     }()
     
-    lazy var caloriePerServingLabel: UILabel = {
+    lazy var caloriesPerServingLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .blue
         label.frame = CGRect(x: 200, y: 0, width: 250, height: 75)
-        label.text = "boiii"
+        label.text = "caloriesPerServing"
         label.textAlignment = .center
         return label
     }()
@@ -32,7 +32,7 @@ class SearchFoodTVCell: UITableViewCell {
         let label = UILabel()
         label.backgroundColor = .red
         label.frame = CGRect(x: 200, y: 75, width: 250, height: 75)
-        label.text = "whaailuba"
+        label.text = "emissionsPerServing"
         label.textAlignment = .center
         return label
     }()
@@ -49,7 +49,7 @@ class SearchFoodTVCell: UITableViewCell {
     
     private func addSubViews() {
         contentView.addSubview(foodNameLabel)
-        contentView.addSubview(caloriePerServingLabel)
+        contentView.addSubview(caloriesPerServingLabel)
         contentView.addSubview(emissionsPerServingLabel)
     }
   
