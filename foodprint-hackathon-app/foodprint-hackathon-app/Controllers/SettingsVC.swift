@@ -31,6 +31,11 @@ class SettingsVC: UIViewController {
         return button
     }()
     
+    lazy var inputStackView: UIStackView = {
+       let stackView = UIStackView(arrangedSubviews: [nameTextField, heightTextField, weightTextField, submitButton])
+        return stackView
+    }()
+    
     lazy var calorieGoalLabel: UILabel = {
         let label = UILabel()
         return label
@@ -49,6 +54,11 @@ class SettingsVC: UIViewController {
     lazy var emissionsSlider: UISlider = {
         let slider = UISlider()
         return slider
+    }()
+    
+    lazy var goalStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [calorieGoalLabel, calorieSlider, emissionsGoalLabel, emissionsSlider])
+        return stackView
     }()
     
     override func viewDidLoad() {
