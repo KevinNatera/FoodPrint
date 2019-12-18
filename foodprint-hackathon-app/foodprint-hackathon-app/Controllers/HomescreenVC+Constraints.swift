@@ -25,24 +25,38 @@ extension HomescreenVC {
     
     private func setUserInfoStackViewConstraints() {
         userInfoStackView.translatesAutoresizingMaskIntoConstraints = false
+        welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
+        calorieGoalLabel.translatesAutoresizingMaskIntoConstraints = false
+        emissionsGoalLabel.translatesAutoresizingMaskIntoConstraints = false
     
         NSLayoutConstraint.activate([
             userInfoStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             userInfoStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             userInfoStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.3),
-            userInfoStackView.centerXAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.centerXAnchor)
+            userInfoStackView.centerXAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.centerXAnchor),
+            welcomeLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            calorieGoalLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            emissionsGoalLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])
         
     }
     
     private func setProgressStackViewConstraints() {
         progressStackView.translatesAutoresizingMaskIntoConstraints = false
+        progressLabel.translatesAutoresizingMaskIntoConstraints = false
+        calorieProgressView.translatesAutoresizingMaskIntoConstraints = false
+        emissionsProgressView.translatesAutoresizingMaskIntoConstraints = false
      
+        
         NSLayoutConstraint.activate([
             progressStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            progressStackView.topAnchor.constraint(equalTo: userInfoStackView.bottomAnchor, constant: 10),
+            progressStackView.topAnchor.constraint(equalTo: userInfoStackView.bottomAnchor, constant: 30),
             progressStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5),
-            progressStackView.centerXAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.centerXAnchor)
+            progressStackView.centerXAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.centerXAnchor),
+            progressLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            calorieProgressView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            emissionsProgressView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+            
         ])
     }
     
