@@ -11,10 +11,11 @@ import UIKit
 class SettingsVC: UIViewController {
     //MARK: - UI Objects
     //TODO: Refactor later to change input method (i.e. picker?)
-    
+    //TODO: Style objects (text, slider color, button color, spacing)
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome!"
+        label.textAlignment = .center
         return label
     }()
     
