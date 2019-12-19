@@ -11,7 +11,7 @@ import UIKit
 class HomescreenVC: UIViewController {
     //TODO: Show alert to pop to SettingsVC if info is not complete
     
-    var currentUser = AppUser(name: "boi", height: 3.5, weight: 90)
+    var currentUser = AppUser(name: "boi", height: 3.5, weight: 90, age: 28, sex: "Female")
     
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()

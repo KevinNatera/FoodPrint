@@ -66,6 +66,33 @@ class SettingsVC: UIViewController {
         return textField
     }()
     
+    lazy var ageLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Enter age:"
+        label.textAlignment = .left
+        return label
+    }()
+    
+    lazy var ageTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "i.e. 28"
+        textField.borderStyle = .roundedRect
+        textField.delegate = self
+        return textField
+    }()
+    
+    lazy var sexLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Enter sex:"
+        label.textAlignment = .left
+        return label
+    }()
+    
+    lazy var sexSegmentedControl: UISegmentedControl = {
+        let segmentedControl = UISegmentedControl(items: ["Male","Female"])
+        return segmentedControl
+    }()
+    
     lazy var submitButton: UIButton = {
         let button = UIButton()
         button.setTitle("Enter", for: .normal)
@@ -75,7 +102,7 @@ class SettingsVC: UIViewController {
     }()
     
     lazy var inputStackView: UIStackView = {
-       let stackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, heightLabel, heightTextField, weightLabel, weightTextField, submitButton])
+       let stackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, heightLabel, heightTextField, weightLabel, weightTextField, ageLabel, ageTextField, sexLabel, sexSegmentedControl, submitButton])
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
@@ -121,17 +148,21 @@ class SettingsVC: UIViewController {
         didSet {
             calorieGoal = currentUser?.caloriesPerDayGoal
             emissionsGoal = currentUser?.avgEmissionPerDay
+            
         }
     }
     
     var calorieGoal: Int? {
         didSet {
             calorieGoalLabel.text = "Calories Goal: \(calorieGoal ?? 0) cal/day"
+            // Update currentUser.caloriesPerDayGoal in persistence
         }
     }
     var emissionsGoal: Int? {
         didSet {
             emissionsGoalLabel.text = "CO2 Emissions Goal: \(emissionsGoal ?? 0) g/day"
+            // Update currentUser.emissionsPerDayGoal in persistence - NEED TO MAKE THIS VARIABLE  IN APPUSERMODEL
+            
         }
     }
     
@@ -143,7 +174,8 @@ class SettingsVC: UIViewController {
         addSubviews()
         addConstraints()
     
-        configureSliders()
+        
+        configureSegmentedControl()
         
         hideGoalStackView()
         loadCurrentUser()
@@ -167,6 +199,10 @@ class SettingsVC: UIViewController {
     }
     
     //MARK: - Private Methods
+    private func configureSegmentedControl() {
+        sexSegmentedControl.selectedSegmentIndex = 0
+    }
+    
     private func hideGoalStackView() {
         goalStackView.isHidden = true
     }
@@ -193,16 +229,29 @@ class SettingsVC: UIViewController {
         nameLabel.text = "Edit name:"
         heightLabel.text = "Edit height:"
         weightLabel.text = "Edit weight:"
+        ageLabel.text = "Edit age:"
+        sexLabel.text = "Edit sex:"
         
         nameTextField.placeholder = "\(currentUser!.name)"
         heightTextField.placeholder = "\(currentUser!.height) ft"
         weightTextField.placeholder = "\(currentUser!.weight) lbs"
+        ageTextField.placeholder = "\(currentUser!.age)"
+        
+        switch currentUser!.sex {
+        case "Male":
+            sexSegmentedControl.selectedSegmentIndex = 0
+        case "Female":
+            sexSegmentedControl.selectedSegmentIndex = 1
+        default:
+            sexSegmentedControl.selectedSegmentIndex = 0
+        }
         
         calorieGoal = currentUser?.caloriesPerDayGoal
         emissionsGoal = currentUser?.avgEmissionPerDay
     }
     
     private func showGoalStackView() {
+        configureSliders()
         goalStackView.isHidden = false
     }
     
@@ -210,22 +259,40 @@ class SettingsVC: UIViewController {
         //TODO: Add if currentUser exists, REPLACE input instead of creating new user
         guard let name = nameTextField.text,
             let heightStr = heightTextField.text,
-            let weightStr = weightTextField.text else { showAlert(message: "All entries must be complete!"); return }
+            let weightStr = weightTextField.text,
+            let ageStr = ageTextField.text
+        else { showAlert(message: "All entries must be complete!"); return }
 
         guard let height = Double(heightStr),
-            let weight = Double(weightStr) else { showAlert(message: "Double check height and weight entries!"); return }
+            let weight = Double(weightStr),
+            let age = Int(ageStr)
+            else { showAlert(message: "Double check number entries!"); return }
         
-        createNewUser(name: name, height: height, weight: weight)
+        var sex = "Male"
+        
+        switch sexSegmentedControl.selectedSegmentIndex {
+        case 0:
+            sex = "Male"
+        case 1:
+            sex = "Female"
+        default:
+            sex = "Male"
+        }
+        
+        createNewUser(name: name, height: height, weight: weight, age: age, sex: sex)
     }
     
-    private func createNewUser(name: String, height: Double, weight: Double) {
-        let newUser = AppUser(name: name, height: height, weight: weight)
+    private func createNewUser(name: String, height: Double, weight: Double, age: Int, sex: String) {
+        let newUser = AppUser(name: name, height: height, weight: weight, age: age, sex: sex)
         
         do {
             try AppUserPersistenceHelper.manager.saveUser(newUser: newUser)
+            showGoalStackView()
             print("User saved")
+    
         } catch {
             print(error)
+            //Show Alert
         }
         
         //Pass currentUser to homescreen?
@@ -237,22 +304,30 @@ class SettingsVC: UIViewController {
     }
     
     private func configureSliders() {
-        let minCalPerDay: Float = 1500
+        do {
+            currentUser = try AppUserPersistenceHelper.manager.getUser().last
+        } catch {
+            print(error)
+        }
+        
+        let caloriesPerDayGoal = currentUser?.caloriesPerDayGoal ?? 2000
+        let avgEmissionsPerDay = currentUser?.avgEmissionPerDay ?? 2268
+        
+        calorieGoalLabel.text = "Calories Goal: \(caloriesPerDayGoal) cal/day"
+        emissionsGoalLabel.text = "CO2 Emissions Goal: \(avgEmissionsPerDay) g/day"
+        
+        
+        let minCalPerDay: Float = 1000
         let maxCalPerDay: Float = 3500
         
         calorieSlider.minimumValue = minCalPerDay
         calorieSlider.maximumValue = maxCalPerDay
         //TODO: Figure out why initial value isn't set
-        calorieSlider.value = (maxCalPerDay - minCalPerDay)/2
+        calorieSlider.value = Float(caloriesPerDayGoal)
         
-        
-//        let avgEmissionsPerDay: Float = Float(currentUser?.avgEmissionPerDay)
-        //TODO: update with actual number
-        let avgEmissionsPerDay: Float = 3000
-        
-        emissionsSlider.value = avgEmissionsPerDay
         emissionsSlider.minimumValue = 0
-        emissionsSlider.maximumValue = avgEmissionsPerDay*2
+        emissionsSlider.maximumValue = Float(avgEmissionsPerDay*2)
+        emissionsSlider.value = Float(avgEmissionsPerDay)
     
     }
 }

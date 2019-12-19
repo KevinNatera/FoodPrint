@@ -30,7 +30,7 @@ class AppUser: Codable {
         }
     }
     
-    let avgEmissionPerDay: Int = 2500 //2.5 tons 2500 kgs
+    let avgEmissionPerDay: Int = 2268 //2.5 tons 2268 kgs
     
     //This should be a computed property based on BMI using height and weight
     var caloriesPerDayGoal: Int {
