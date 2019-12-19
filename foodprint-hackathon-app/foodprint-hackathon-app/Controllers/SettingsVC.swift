@@ -284,9 +284,10 @@ class SettingsVC: UIViewController {
         
         do {
             try AppUserPersistenceHelper.manager.saveUser(newUser: newUser)
+            try AppUserPersistenceHelper.manager.updateUserCalorieGoal(user: newUser, dailyCalorieGoal: Int(newUser.bmr))
             showGoalStackView()
             print("User saved")
-    
+            
         } catch {
             print(error)
             //Show Alert

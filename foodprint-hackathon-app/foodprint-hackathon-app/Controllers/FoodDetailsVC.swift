@@ -106,7 +106,7 @@ class FoodDetailsVC: UIViewController {
         caloriesPerServingLabel.text = "\(foodsDetail.calories)"
         servingsLabel.text = "\(foodsDetail.servings)"
         totalCaloriesLabel.text = "\(foodsDetail.calories)"
-        totalEmissionsLabel.text = "\(foodsDetail.carbonEmissionsKgPerServing)"
+        totalEmissionsLabel.text = "\(foodsDetail.carbonEmissionsGramsPerServing)"
     }
     
     private func addSubViews() {
