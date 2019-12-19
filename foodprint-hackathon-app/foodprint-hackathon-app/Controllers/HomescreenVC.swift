@@ -48,13 +48,13 @@ class HomescreenVC: UIViewController {
     
     lazy var calorieProgressView: CircularProgressView = {
         let progressView = CircularProgressView()
-        progressView.backgroundColor = .blue
+        progressView.backgroundColor = .clear
         return progressView
     }()
     
     lazy var emissionsProgressView: CircularProgressView = {
         let progressView = CircularProgressView()
-        progressView.backgroundColor = .red
+        progressView.backgroundColor = .clear
         return progressView
     }()
     
