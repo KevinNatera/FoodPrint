@@ -16,7 +16,7 @@ extension SettingsVC: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.placeholder = ""
+        textField.placeholder =  ""
     }
     
 }
