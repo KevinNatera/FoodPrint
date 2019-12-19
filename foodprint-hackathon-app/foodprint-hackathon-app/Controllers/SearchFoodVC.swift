@@ -94,7 +94,7 @@ extension SearchFoodVC: UITableViewDelegate, UITableViewDataSource {
         
         cell.foodNameLabel.text = foods.name
         cell.caloriesPerServingLabel.text = "\(foods.calories)"
-        cell.emissionsPerServingLabel.text = "\(foods.carbonEmissionsKgPerServing)"
+        cell.emissionsPerServingLabel.text = "\(foods.carbonEmissionsGramsPerServing)"
         
         return cell
     }
