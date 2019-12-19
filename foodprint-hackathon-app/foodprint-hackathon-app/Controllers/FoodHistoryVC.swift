@@ -14,6 +14,9 @@ class FoodHistoryVC: UIViewController {
     lazy var historyTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(SearchFoodTVCell.self, forCellReuseIdentifier: "history")
+        tableView.rowHeight = 150
+        tableView.delegate = self
+        tableView.dataSource = self
         return tableView
     }()
     
@@ -65,11 +68,10 @@ extension FoodHistoryVC: UITableViewDelegate, UITableViewDataSource {
         let cell = historyTableView.dequeueReusableCell(withIdentifier: "history") as! SearchFoodTVCell
         
         let food = foodHistory[indexPath.row]
-        
         cell.foodNameLabel.text = food.name
         cell.caloriesPerServingLabel.text = "Servings: \(food.servings ?? 0 )"
         cell.emissionsPerServingLabel.text = "Emissions/serving: \(food.carbonEmissionsGramsPerServing)"
-        
+    
         return cell
     }
 
