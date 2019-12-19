@@ -10,6 +10,9 @@ import UIKit
 
 class HomescreenVC: UIViewController {
     //TODO: Show alert to pop to SettingsVC if info is not complete
+    
+    var currentUser = AppUser(name: "boi", height: 3.5, weight: 90)
+    
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "Hi name!"
@@ -54,6 +57,7 @@ class HomescreenVC: UIViewController {
     lazy var emissionsProgressView: UIProgressView = {
         let progressView = UIProgressView()
         progressView.backgroundColor = .red
+        progressView.progress = 0.4
         return progressView
     }()
     
@@ -68,8 +72,13 @@ class HomescreenVC: UIViewController {
     lazy var addFoodButton: UIButton = {
         let button = UIButton()
         button.setTitle("Add Food", for: .normal)
+        button.addTarget(self, action: #selector(addFoodButtonPressed), for: .touchUpInside)
         return button
     }()
+    
+    @objc func addFoodButtonPressed() {
+        self.navigationController?.pushViewController(SearchFoodVC(), animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +87,17 @@ class HomescreenVC: UIViewController {
         
         addSubviews()
         addConstraints()
+        loadData()
+    
     }
+    
+    
 
 
+    private func loadData() {
+        welcomeLabel.text = "Hi \(currentUser.name) !"
+        
+    }
+    
+    
 }
