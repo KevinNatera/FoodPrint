@@ -39,12 +39,21 @@ extension SettingsVC {
     
     private func setInputStackViewConstraints() {
         inputStackView.translatesAutoresizingMaskIntoConstraints = false
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        heightTextField.translatesAutoresizingMaskIntoConstraints = false
+        weightTextField.translatesAutoresizingMaskIntoConstraints = false
+        
         
         NSLayoutConstraint.activate([
             inputStackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 30),
             inputStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             inputStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            inputStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
+            inputStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+            
+            nameTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.6),
+            heightTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.6),
+            weightTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.6)
+            
         ])
         
     }
