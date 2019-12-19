@@ -11,7 +11,7 @@ import UIKit
 class HomescreenVC: UIViewController {
     //TODO: Show alert to pop to SettingsVC if info is not complete
     
-    var currentUser = AppUser(name: "boi", height: 3.5, weight: 90)
+    var currentUser = AppUser(name: "boi", height: 2.1, weight: 2.1, age: 3, sex: "male")
     
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
@@ -48,16 +48,15 @@ class HomescreenVC: UIViewController {
         return label
     }()
     
-    lazy var calorieProgressView: UIProgressView = {
-        let progressView = UIProgressView()
+    lazy var calorieProgressView: CircularProgressView = {
+        let progressView = CircularProgressView()
         progressView.backgroundColor = .blue
         return progressView
     }()
     
-    lazy var emissionsProgressView: UIProgressView = {
-        let progressView = UIProgressView()
+    lazy var emissionsProgressView: CircularProgressView = {
+        let progressView = CircularProgressView()
         progressView.backgroundColor = .red
-        progressView.progress = 0.4
         return progressView
     }()
     
@@ -91,12 +90,15 @@ class HomescreenVC: UIViewController {
     
     }
     
+
+        
     
+
 
 
     private func loadData() {
         welcomeLabel.text = "Hi \(currentUser.name) !"
-        
+        calorieProgressView.progressAnimation(progress: 0.4, duration: 2)
     }
     
     
