@@ -134,31 +134,6 @@ class SearchFoodVC: UIViewController {
     }
     
     
-    private func showAlert() {
-        let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        alertVC.addAction(UIAlertAction(title: "All", style: .default){ _ in
-            self.searchBar.text = " "
-        })
-        alertVC.addAction(UIAlertAction(title: "Meat", style: .default){ _ in
-            self.searchBar.text = "Meat"
-        })
-        alertVC.addAction(UIAlertAction(title: "Vegetable", style: .default){ _ in
-            self.searchBar.text = "Vegetable"
-        })
-        alertVC.addAction(UIAlertAction(title: "Dairy", style: .default){ _ in
-            self.searchBar.text = "Dairy"
-        })
-        alertVC.addAction(UIAlertAction(title: "Bread", style: .default){ _ in
-            self.searchBar.text = "Bread"
-        })
-        
-        
-        alertVC.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
-        alertVC.popoverPresentationController?.sourceView = view
-        alertVC.popoverPresentationController?.sourceRect = view.bounds
-        present(alertVC, animated: true, completion: nil)
-    }
     
 }
 
@@ -172,9 +147,6 @@ extension SearchFoodVC: UISearchBarDelegate{
         searchString = searchBar.text
     }
     
-    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-        showAlert()
-    }
 }
 
 
@@ -191,7 +163,9 @@ extension SearchFoodVC: UITableViewDelegate, UITableViewDataSource {
         
         cell.foodNameLabel.text = theFoods.name
         cell.caloriesPerServingLabel.text = "\(theFoods.calories)"
-        cell.emissionsPerServingLabel.text = "\(theFoods.carbonEmissionsKgPerServing)"
+        cell.emissionsPerServingLabel.text = "\(theFoods.carbonEmissionsGramsPerServing)"
+
+
         
         return cell
     }

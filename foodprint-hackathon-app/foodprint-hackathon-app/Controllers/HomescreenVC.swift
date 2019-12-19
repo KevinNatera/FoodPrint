@@ -11,8 +11,6 @@ import UIKit
 class HomescreenVC: UIViewController {
     //TODO: Show alert to pop to SettingsVC if info is not complete
     
-    var currentUser = AppUser(name: "boi", height: 3.5, weight: 90, age: 28, sex: "Female")
-    
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "Hi name!"
@@ -44,20 +42,19 @@ class HomescreenVC: UIViewController {
     
     lazy var progressLabel: UILabel = {
         let label = UILabel()
-        label.text = "Progress"
+        label.text = "Daily Progress"
         return label
     }()
     
-    lazy var calorieProgressView: UIProgressView = {
-        let progressView = UIProgressView()
+    lazy var calorieProgressView: CircularProgressView = {
+        let progressView = CircularProgressView()
         progressView.backgroundColor = .blue
         return progressView
     }()
     
-    lazy var emissionsProgressView: UIProgressView = {
-        let progressView = UIProgressView()
+    lazy var emissionsProgressView: CircularProgressView = {
+        let progressView = CircularProgressView()
         progressView.backgroundColor = .red
-        progressView.progress = 0.4
         return progressView
     }()
     
@@ -72,12 +69,28 @@ class HomescreenVC: UIViewController {
     lazy var addFoodButton: UIButton = {
         let button = UIButton()
         button.setTitle("Add Food", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
         button.addTarget(self, action: #selector(addFoodButtonPressed), for: .touchUpInside)
         return button
     }()
     
-    @objc func addFoodButtonPressed() {
-        self.navigationController?.pushViewController(SearchFoodVC(), animated: true)
+    var currentUser: AppUser? {
+        didSet {
+            calorieGoal = currentUser?.caloriesPerDayGoal
+            emissionsGoal = currentUser?.avgEmissionPerDay
+            
+        }
+    }
+    
+    var calorieGoal: Int? {
+        didSet {
+            calorieGoalLabel.text = "Calories Goal: \(calorieGoal ?? 0) cal/day"
+        }
+    }
+    var emissionsGoal: Int? {
+        didSet {
+            emissionsGoalLabel.text = "CO2 Emissions Goal: \(emissionsGoal ?? 0) g/day"
+        }
     }
     
     override func viewDidLoad() {
@@ -87,17 +100,63 @@ class HomescreenVC: UIViewController {
         
         addSubviews()
         addConstraints()
-        loadData()
-    
+
     }
     
-    
-
-
-    private func loadData() {
-        welcomeLabel.text = "Hi \(currentUser.name) !"
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadUserData()
         
     }
     
+    @objc func addFoodButtonPressed() {
+        self.navigationController?.pushViewController(SearchFoodVC(), animated: true)
+    }
+
+        
+    private func loadUserData() {
+        do {
+            currentUser = try AppUserPersistenceHelper.manager.getUser().last
+        } catch {
+            print(error)
+        }
+        
+        if currentUser != nil {
+            updateUserInfo()
+        } else {
+            //TODO: Show alert and pop back to SettingsVC
+        }
+    }
+
+    private func updateUserInfo() {
+        welcomeLabel.text = "Hi \(currentUser!.name)!"
+        updateCalorieProgress()
+        updateEmissionsProgress()
+    }
+
+    private func updateCalorieProgress() {
+        if let currentCalories = currentUser!.currentCalories,
+            let calorieGoal = calorieGoal {
+        
+            let calorieProgress:Double = Double(Double(currentCalories) / Double(calorieGoal))
+            calorieProgressView.progressAnimation(progress: Double(calorieProgress), duration: 2)
+            
+        } else {
+            calorieProgressView.progressAnimation(progress: 0, duration: 0)
+        }
+    }
+    
+    private func updateEmissionsProgress() {
+        if let currentEmissions = currentUser!.currentEmissions,
+            let emissionsGoal = emissionsGoal {
+        
+            let emissionsProgress:Double = Double(Double(currentEmissions) / Double(emissionsGoal))
+            calorieProgressView.progressAnimation(progress: Double(emissionsProgress), duration: 2)
+            
+        } else {
+            calorieProgressView.progressAnimation(progress: 0, duration: 0)
+        }
+
+    }
     
 }

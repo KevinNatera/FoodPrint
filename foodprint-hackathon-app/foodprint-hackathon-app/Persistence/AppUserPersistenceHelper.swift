@@ -29,6 +29,28 @@ struct AppUserPersistenceHelper {
         }
     }
     
+    func updateUserCalorieGoal(user: AppUser, dailyCalorieGoal: Int) throws {
+        do {
+            let users = try getUser()
+            try persistenceHelper.replace(elements: users.filter { $0.bmr == user.bmr})
+            let newUser = AppUser(name: user.name, height: user.height, weight: user.weight, age: user.age, sex: user.sex)
+            newUser.caloriesPerDayGoal = dailyCalorieGoal
+            newUser.emissionsPerDayGoal = user.emissionsPerDayGoal
+            try persistenceHelper.save(newElement: newUser)
+        }
+    }
+    
+    func updateUserEmissionGoal(user: AppUser, dailyEmissionGoal: Int) throws {
+        do {
+            let users = try getUser()
+            try persistenceHelper.replace(elements: users.filter { $0.bmr == user.bmr})
+            let newUser = AppUser(name: user.name, height: user.height, weight: user.weight, age: user.age, sex: user.sex)
+            newUser.caloriesPerDayGoal = user.caloriesPerDayGoal
+            newUser.emissionsPerDayGoal = dailyEmissionGoal
+            try persistenceHelper.save(newElement: newUser)
+        }
+    }
+    
     private let persistenceHelper = PersistenceHelper<AppUser>(fileName: "mySavedUsers.plist")
     
     private init() {}

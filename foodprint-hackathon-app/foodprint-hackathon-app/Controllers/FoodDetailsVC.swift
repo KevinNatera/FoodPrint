@@ -23,7 +23,7 @@ class FoodDetailsVC: UIViewController {
         let label = UILabel()
         //label.frame = CGRect(x: 0, y: 425, width: 420, height: 40)
         label.textAlignment = .center
-        label.text = "foodname"
+        label.text = "Name: "
         label.backgroundColor = .red
         return label
     }()
@@ -31,7 +31,7 @@ class FoodDetailsVC: UIViewController {
     lazy var caloriesPerServingLabel: UILabel = {
         let label = UILabel()
         //label.frame = CGRect(x: 0, y: 500, width: 420, height: 40)
-        label.text = "caloriesperserving"
+        label.text = "Calories: "
         label.textAlignment = .center
         label.backgroundColor = .blue
         return label
@@ -40,7 +40,7 @@ class FoodDetailsVC: UIViewController {
     lazy var servingsLabel: UILabel = {
         let label = UILabel()
         //label.frame = CGRect(x: 0, y: 575, width: 170, height: 40)
-        label.text = "Number of Servings: "
+        label.text = "Servings: "
         label.textAlignment = .left
         label.backgroundColor = .blue
         return label
@@ -49,7 +49,7 @@ class FoodDetailsVC: UIViewController {
     lazy var servingsTextField: UITextField = {
         let textField = UITextField()
         //textField.frame = CGRect(x: 175, y: 575, width: 250, height: 40)
-        textField.placeholder = "Enter amount in grams"
+        textField.placeholder = "Enter a number"
         textField.delegate = self
         textField.borderStyle = .roundedRect
         return textField
@@ -59,7 +59,7 @@ class FoodDetailsVC: UIViewController {
         let label = UILabel()
         //label.frame = CGRect(x: 0, y: 650, width: 420, height: 40)
         label.textAlignment = .center
-        label.text = "totalCalories"
+        label.text = "Total Calories: "
         label.backgroundColor = .blue
         return label
     }()
@@ -68,7 +68,7 @@ class FoodDetailsVC: UIViewController {
           let label = UILabel()
           //label.frame = CGRect(x: 0, y: 725, width: 420, height: 40)
           label.textAlignment = .center
-          label.text = "totalEmissions"
+          label.text = "Total Emission: "
           label.backgroundColor = .blue
           return label
       }()
@@ -82,11 +82,20 @@ class FoodDetailsVC: UIViewController {
         return button
     }()
     
+    var currentUser = try? AppUserPersistenceHelper.manager.getUser().last
+    
+    var totalAmount: String = "" {
+        didSet{
+            setText(amount: Double(totalAmount) ?? 1)
+        }
+    }
+    
+    //MARK: Foods
     var foodsDetail: Food!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        setText()
+        setText(amount: Double(totalAmount) ?? 1)
     }
     
     override func viewDidLoad() {
@@ -96,17 +105,18 @@ class FoodDetailsVC: UIViewController {
     }
     
     @objc func addButtonPressed() {
-        self.navigationController?.popViewController(animated: true)
+        currentUser?.addToFoodHistory(food: foodsDetail)
+         self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Private Methods
     
-    private func setText(){
-        foodNameLabel.text = foodsDetail.name
-        caloriesPerServingLabel.text = "\(foodsDetail.calories)"
-        servingsLabel.text = "\(foodsDetail.servings)"
-        totalCaloriesLabel.text = "\(foodsDetail.calories)"
-        totalEmissionsLabel.text = "\(foodsDetail.carbonEmissionsKgPerServing)"
+    private func setText(amount: Double ){
+        foodNameLabel.text = "Name: \(foodsDetail.name)"
+        caloriesPerServingLabel.text = "Calories: \(foodsDetail.calories * Int(amount))"
+        servingsLabel.text = "Servings: \(foodsDetail.servings ?? 0)"
+        totalCaloriesLabel.text = "Total Calories: \(foodsDetail.calories * Int(amount))"
+        totalEmissionsLabel.text = "Total Emission: \(foodsDetail.carbonEmissionsGramsPerServing * amount)"
     }
     
     private func addSubViews() {
@@ -165,5 +175,10 @@ extension FoodDetailsVC: UITextFieldDelegate {
         textField.resignFirstResponder()
         
         //update UI Code
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.totalAmount = textField.text ?? "1"
     }
 }

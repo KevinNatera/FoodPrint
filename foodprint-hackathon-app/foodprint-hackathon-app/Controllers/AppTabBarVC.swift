@@ -32,7 +32,7 @@ class AppTabBarVC: UITabBarController {
         super.viewDidLoad()
         
         settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "person.circle"), tag: 0)
-        homescreenVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "chart.pie.fill"), tag: 1)
+        homescreenVC.tabBarItem = UITabBarItem(title: "Progress", image: UIImage(systemName: "chart.pie.fill"), tag: 1)
         foodHistoryVC.tabBarItem = UITabBarItem(title: "Food History", image: UIImage(systemName: "cart.fill"), tag: 2)
         
         self.viewControllers = [settingsVC, homescreenVC, foodHistoryVC]

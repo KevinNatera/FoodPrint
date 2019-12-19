@@ -28,6 +28,7 @@
 		EAF10E9623AAF506009A1AD3 /* AppTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E9523AAF506009A1AD3 /* AppTabBarVC.swift */; };
 		EAF10E9823AAFB26009A1AD3 /* SettingsVC+TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E9723AAFB26009A1AD3 /* SettingsVC+TextFields.swift */; };
 		EAF10E9A23AAFC63009A1AD3 /* AppUserPersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E9923AAFC63009A1AD3 /* AppUserPersistenceHelper.swift */; };
+		EAFF1A5223ABE6A600AEE719 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFF1A5123ABE6A600AEE719 /* CircularProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		EAF10E9523AAF506009A1AD3 /* AppTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarVC.swift; sourceTree = "<group>"; };
 		EAF10E9723AAFB26009A1AD3 /* SettingsVC+TextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC+TextFields.swift"; sourceTree = "<group>"; };
 		EAF10E9923AAFC63009A1AD3 /* AppUserPersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserPersistenceHelper.swift; sourceTree = "<group>"; };
+		EAFF1A5123ABE6A600AEE719 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		EAF10E7323AA945C009A1AD3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EAFF1A5123ABE6A600AEE719 /* CircularProgressView.swift */,
 				EAF10E5F23AA9435009A1AD3 /* AppDelegate.swift */,
 				EAF10E6123AA9435009A1AD3 /* SceneDelegate.swift */,
 				EAF10E6823AA9436009A1AD3 /* Assets.xcassets */,
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAFF1A5223ABE6A600AEE719 /* CircularProgressView.swift in Sources */,
 				EAF10E9A23AAFC63009A1AD3 /* AppUserPersistenceHelper.swift in Sources */,
 				EAF10E8023AA94D9009A1AD3 /* AppUser.swift in Sources */,
 				EAF10E8623AA95D6009A1AD3 /* FoodDetailsVC.swift in Sources */,
