@@ -10,6 +10,7 @@ import UIKit
 
 class SearchFoodVC: UIViewController {
     
+  
     
     //MARK: - Properties
     lazy var searchBar: UISearchBar = {
@@ -106,8 +107,8 @@ extension SearchFoodVC: UITableViewDelegate, UITableViewDataSource {
         let theFoods = Food.foodList[indexPath.row]
         
         cell.foodNameLabel.text = theFoods.name
-        cell.caloriesPerServingLabel.text = "\(theFoods.calories)"
-        cell.emissionsPerServingLabel.text = "\(theFoods.carbonEmissionsGramsPerServing)"
+        cell.caloriesPerServingLabel.text = "Calories per serving: \n\(theFoods.calories)"
+        cell.emissionsPerServingLabel.text = "Emissions per gram per serving:\n\(theFoods.carbonEmissionsGramsPerServing)"
 
 
         

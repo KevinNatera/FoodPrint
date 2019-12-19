@@ -13,7 +13,7 @@ class SearchFoodTVCell: UITableViewCell {
     //MARK: - Properties
     lazy var foodNameLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .green
+        label.backgroundColor = .lightGray
         //label.frame = CGRect(x: 0, y: 0, width: 200, height: 150)
         label.text = "foodName"
         label.textAlignment = .center
@@ -22,18 +22,20 @@ class SearchFoodTVCell: UITableViewCell {
     
     lazy var caloriesPerServingLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .blue
+        label.backgroundColor = .lightGray
         //label.frame = CGRect(x: 200, y: 0, width: 250, height: 75)
         label.text = "caloriesPerServing"
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
     
     lazy var emissionsPerServingLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .red
+        label.backgroundColor = .lightGray
         //label.frame = CGRect(x: 200, y: 75, width: 250, height: 75)
         label.text = "emissionsPerServing"
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
