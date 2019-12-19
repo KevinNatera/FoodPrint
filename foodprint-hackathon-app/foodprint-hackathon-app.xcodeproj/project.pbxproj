@@ -26,6 +26,8 @@
 		EAF10E9223AAB64E009A1AD3 /* SettingsVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E9123AAB64E009A1AD3 /* SettingsVC+Constraints.swift */; };
 		EAF10E9423AAD1D7009A1AD3 /* HomescreenVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E9323AAD1D7009A1AD3 /* HomescreenVC+Constraints.swift */; };
 		EAF10E9623AAF506009A1AD3 /* AppTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E9523AAF506009A1AD3 /* AppTabBarVC.swift */; };
+		EAF10E9823AAFB26009A1AD3 /* SettingsVC+TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E9723AAFB26009A1AD3 /* SettingsVC+TextFields.swift */; };
+		EAF10E9A23AAFC63009A1AD3 /* AppUserPersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF10E9923AAFC63009A1AD3 /* AppUserPersistenceHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		EAF10E9123AAB64E009A1AD3 /* SettingsVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC+Constraints.swift"; sourceTree = "<group>"; };
 		EAF10E9323AAD1D7009A1AD3 /* HomescreenVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomescreenVC+Constraints.swift"; sourceTree = "<group>"; };
 		EAF10E9523AAF506009A1AD3 /* AppTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarVC.swift; sourceTree = "<group>"; };
+		EAF10E9723AAFB26009A1AD3 /* SettingsVC+TextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC+TextFields.swift"; sourceTree = "<group>"; };
+		EAF10E9923AAFC63009A1AD3 /* AppUserPersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserPersistenceHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 			children = (
 				EAF10E9523AAF506009A1AD3 /* AppTabBarVC.swift */,
 				EAF10E6323AA9435009A1AD3 /* SettingsVC.swift */,
+				EAF10E9723AAFB26009A1AD3 /* SettingsVC+TextFields.swift */,
 				EAF10E9123AAB64E009A1AD3 /* SettingsVC+Constraints.swift */,
 				EAF10E8123AA9540009A1AD3 /* HomescreenVC.swift */,
 				EAF10E9323AAD1D7009A1AD3 /* HomescreenVC+Constraints.swift */,
@@ -142,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				EAF10E7B23AA94C3009A1AD3 /* PersistenceManager.swift */,
+				EAF10E9923AAFC63009A1AD3 /* AppUserPersistenceHelper.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAF10E9A23AAFC63009A1AD3 /* AppUserPersistenceHelper.swift in Sources */,
 				EAF10E8023AA94D9009A1AD3 /* AppUser.swift in Sources */,
 				EAF10E8623AA95D6009A1AD3 /* FoodDetailsVC.swift in Sources */,
 				EAF10E7A23AA94AA009A1AD3 /* NetworkManager.swift in Sources */,
@@ -231,6 +238,7 @@
 				EAF10E8423AA95C8009A1AD3 /* SearchFoodVC.swift in Sources */,
 				EAF10E7C23AA94C3009A1AD3 /* PersistenceManager.swift in Sources */,
 				EAF10E8A23AA9608009A1AD3 /* SearchFoodTVCell.swift in Sources */,
+				EAF10E9823AAFB26009A1AD3 /* SettingsVC+TextFields.swift in Sources */,
 				EAF10E8823AA95E2009A1AD3 /* FoodHistoryVC.swift in Sources */,
 				EAF10E6423AA9435009A1AD3 /* SettingsVC.swift in Sources */,
 				EAF10E9223AAB64E009A1AD3 /* SettingsVC+Constraints.swift in Sources */,
