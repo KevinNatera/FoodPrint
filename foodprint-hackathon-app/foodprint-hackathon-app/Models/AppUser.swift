@@ -33,41 +33,39 @@ class AppUser: Codable {
     let avgEmissionPerDay: Int = 2268 //2.5 tons 2268 kgs
     
     //This should be a computed property based on BMI using height and weight
-    var caloriesPerDayGoal: Int {
-        return Int(bmr)
-    }
-    
-    var foodHistory: [Food]?
+    var caloriesPerDayGoal: Int?
+    var emissionsPerDayGoal: Int?
+    var foodHistory = [Food]()
     
     //This should be the sum of all the calories of Food in foodHistory
     var currentCalories: Int? {
         var sum = 0
-        if let food = self.foodHistory {
-            for i in food {
-                sum += i.calories
-            }
+        for i in self.foodHistory {
+            sum += i.calories
         }
         return sum
     }
     //This should be the sum of all the emissions of Food in foodHistory
     var currentEmissions: Int? {
         var sum = 0.0
+<<<<<<< HEAD
         if let food = self.foodHistory {
             for i in food {
                 sum += i.carbonEmissionsGramsPerServing
             }
+=======
+        
+        for i in self.foodHistory {
+            sum += i.carbonEmissionsGramsPerServing
+>>>>>>> 0a48f408447b4db5cd488386a733b7797fe383c3
         }
         return Int(sum)
     }
     
     func addToFoodHistory(food: Food) {
-        if self.foodHistory != nil {
-            self.foodHistory?.append(food)
-        } else {
-            self.foodHistory = [food]
-        }
+        self.foodHistory.append(food)
     }
-        
+    
     func changeSettings(name: String, height: Double, weight: Double, age: Int, sex: String) {
         self.name = name
         self.height = height
