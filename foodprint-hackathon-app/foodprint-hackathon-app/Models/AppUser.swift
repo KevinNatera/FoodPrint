@@ -54,7 +54,7 @@ class AppUser: Codable {
         var sum = 0.0
         if let food = self.foodHistory {
             for i in food {
-                sum += i.carbonEmissionsKgPerServing
+                sum += i.carbonEmissionsGramsPerServing
             }
         }
         return Int(sum)
