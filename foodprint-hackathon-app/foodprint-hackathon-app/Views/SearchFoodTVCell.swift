@@ -14,7 +14,7 @@ class SearchFoodTVCell: UITableViewCell {
     lazy var foodNameLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .green
-        label.frame = CGRect(x: 0, y: 0, width: 200, height: 150)
+        //label.frame = CGRect(x: 0, y: 0, width: 200, height: 150)
         label.text = "foodName"
         label.textAlignment = .center
         return label
@@ -23,7 +23,7 @@ class SearchFoodTVCell: UITableViewCell {
     lazy var caloriesPerServingLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .blue
-        label.frame = CGRect(x: 200, y: 0, width: 250, height: 75)
+        //label.frame = CGRect(x: 200, y: 0, width: 250, height: 75)
         label.text = "caloriesPerServing"
         label.textAlignment = .center
         return label
@@ -32,7 +32,7 @@ class SearchFoodTVCell: UITableViewCell {
     lazy var emissionsPerServingLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .red
-        label.frame = CGRect(x: 200, y: 75, width: 250, height: 75)
+        //label.frame = CGRect(x: 200, y: 75, width: 250, height: 75)
         label.text = "emissionsPerServing"
         label.textAlignment = .center
         return label
@@ -41,6 +41,7 @@ class SearchFoodTVCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubViews()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -53,6 +54,29 @@ class SearchFoodTVCell: UITableViewCell {
         contentView.addSubview(foodNameLabel)
         contentView.addSubview(caloriesPerServingLabel)
         contentView.addSubview(emissionsPerServingLabel)
+    }
+    
+    private func setupConstraints(){
+        foodNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        caloriesPerServingLabel.translatesAutoresizingMaskIntoConstraints = false
+        emissionsPerServingLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            foodNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            foodNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            foodNameLabel.heightAnchor.constraint(equalToConstant: 150),
+            foodNameLabel.widthAnchor.constraint(equalToConstant: 200),
+            
+            caloriesPerServingLabel.leadingAnchor.constraint(equalTo: foodNameLabel.trailingAnchor),
+            caloriesPerServingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            caloriesPerServingLabel.heightAnchor.constraint(equalToConstant: 75),
+            
+            emissionsPerServingLabel.topAnchor.constraint(equalTo: caloriesPerServingLabel.bottomAnchor),
+            emissionsPerServingLabel.leadingAnchor.constraint(equalTo: foodNameLabel.trailingAnchor),
+            emissionsPerServingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            emissionsPerServingLabel.heightAnchor.constraint(equalToConstant: 75)
+            
+        ])
     }
   
 }
