@@ -13,7 +13,7 @@ struct AppUserPersistenceHelper {
    static let manager = AppUserPersistenceHelper()
     
     func saveUser(newUser: AppUser) throws {
-    try persistenceHelper.save(newElement: newUser)
+        try persistenceHelper.save(newElement: newUser)
     }
     
     func getUser() throws -> [AppUser] {
