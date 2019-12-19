@@ -147,7 +147,7 @@ class FoodDetailsVC: UIViewController {
             imageOutlet.heightAnchor.constraint(equalTo: imageOutlet.widthAnchor),
             
             stackView.topAnchor.constraint(equalTo: imageOutlet.bottomAnchor, constant: 15),
-            stackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            stackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6),
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 300),
             
