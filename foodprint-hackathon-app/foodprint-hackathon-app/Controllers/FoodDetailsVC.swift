@@ -49,6 +49,7 @@ class FoodDetailsVC: UIViewController {
     lazy var servingsTextField: UITextField = {
         let textField = UITextField()
         //textField.frame = CGRect(x: 175, y: 575, width: 250, height: 40)
+        textField.placeholder = "Enter amount in grams"
         textField.delegate = self
         textField.borderStyle = .roundedRect
         return textField
@@ -64,13 +65,14 @@ class FoodDetailsVC: UIViewController {
     }()
     
     lazy var totalEmissionsLabel: UILabel = {
-        let label = UILabel()
-        //label.frame = CGRect(x: 0, y: 725, width: 420, height: 40)
-        label.textAlignment = .center
-        label.text = "totalEmissions"
-        label.backgroundColor = .blue
-        return label
-    }()
+          let label = UILabel()
+          //label.frame = CGRect(x: 0, y: 725, width: 420, height: 40)
+          label.textAlignment = .center
+          label.text = "totalEmissions"
+          label.backgroundColor = .blue
+          return label
+      }()
+
     
     lazy var addButton: UIButton = {
         let button = UIButton()
@@ -80,6 +82,12 @@ class FoodDetailsVC: UIViewController {
         return button
     }()
     
+    var foodsDetail: Food!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setText()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,10 +96,18 @@ class FoodDetailsVC: UIViewController {
     }
     
     @objc func addButtonPressed() {
-        print("boii")
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Private Methods
+    
+    private func setText(){
+        foodNameLabel.text = foodsDetail.name
+        caloriesPerServingLabel.text = "\(foodsDetail.calories)"
+        servingsLabel.text = "\(foodsDetail.servings)"
+        totalCaloriesLabel.text = "\(foodsDetail.calories)"
+        totalEmissionsLabel.text = "\(foodsDetail.carbonEmissionsKgPerServing)"
+    }
     
     private func addSubViews() {
         view.backgroundColor = .white
@@ -106,7 +122,7 @@ class FoodDetailsVC: UIViewController {
     }
     
     private func setupConstraints(){
-        let stackView = UIStackView(arrangedSubviews: [foodNameLabel,caloriesPerServingLabel,servingsLabel,totalCaloriesLabel,totalEmissionsLabel])
+        let stackView = UIStackView(arrangedSubviews: [foodNameLabel,caloriesPerServingLabel,servingsTextField ,servingsLabel,totalCaloriesLabel,totalEmissionsLabel])
         stackView.axis = .vertical
         stackView.spacing = 10
         stackView.distribution = .fillEqually
@@ -124,14 +140,14 @@ class FoodDetailsVC: UIViewController {
         
         
         NSLayoutConstraint.activate([
-            imageOutlet.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            imageOutlet.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             imageOutlet.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            imageOutlet.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20),
+            imageOutlet.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             imageOutlet.heightAnchor.constraint(equalToConstant: 200),
             
-            stackView.topAnchor.constraint(equalTo: imageOutlet.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: view.leftAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.rightAnchor),
+            stackView.topAnchor.constraint(equalTo: imageOutlet.bottomAnchor, constant: 15),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 300),
             
             addButton.topAnchor.constraint(equalTo: stackView.bottomAnchor),
@@ -140,10 +156,6 @@ class FoodDetailsVC: UIViewController {
             
         ])
     }
-    
-    
-    
-    
 }
 
 //MARK: - Extensions
