@@ -155,13 +155,12 @@ class SettingsVC: UIViewController {
     var calorieGoal: Int? {
         didSet {
             calorieGoalLabel.text = "Calories Goal: \(calorieGoal ?? 0) cal/day"
-            // Update currentUser.caloriesPerDayGoal in persistence
+            
         }
     }
     var emissionsGoal: Int? {
         didSet {
             emissionsGoalLabel.text = "CO2 Emissions Goal: \(emissionsGoal ?? 0) g/day"
-            // Update currentUser.emissionsPerDayGoal in persistence - NEED TO MAKE THIS VARIABLE  IN APPUSERMODEL
             
         }
     }
@@ -173,10 +172,7 @@ class SettingsVC: UIViewController {
     
         addSubviews()
         addConstraints()
-    
-        
         configureSegmentedControl()
-        
         hideGoalStackView()
         loadCurrentUser()
     }
@@ -190,11 +186,12 @@ class SettingsVC: UIViewController {
         switch sender.tag {
         case 0:
             calorieGoal = Int(sender.value)
+            try? AppUserPersistenceHelper.manager.updateUserCalorieGoal(user: currentUser!, dailyCalorieGoal: calorieGoal!)
         case 1:
             emissionsGoal = Int(sender.value)
+               try? AppUserPersistenceHelper.manager.updateUserEmissionGoal(user: currentUser!, dailyEmissionGoal: emissionsGoal!)
         default:
             print("No such thing")
-            
         }
     }
     
