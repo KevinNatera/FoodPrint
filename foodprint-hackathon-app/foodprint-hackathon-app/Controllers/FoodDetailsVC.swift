@@ -107,7 +107,14 @@ class FoodDetailsVC: UIViewController {
     }
     
     @objc func addButtonPressed() {
-        currentUser?.addToFoodHistory(food: foodsDetail)
+        do {
+            try AppUserPersistenceHelper.manager.updateUserFoodHistory(user: currentUser!, food: foodsDetail)
+        } catch {
+            print(error)
+        }
+        
+    
+        
          self.navigationController?.popViewController(animated: true)
     }
     
