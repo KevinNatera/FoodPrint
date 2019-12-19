@@ -32,6 +32,8 @@ class FoodHistoryVC: UIViewController {
         super.viewDidLoad()
         addSubViews()
         addConstraints()
+        
+        loadUserData()
     }
     
 
