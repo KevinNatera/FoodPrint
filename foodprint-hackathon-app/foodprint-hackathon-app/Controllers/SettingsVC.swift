@@ -90,6 +90,8 @@ class SettingsVC: UIViewController {
     
     lazy var calorieSlider: UISlider = {
         let slider = UISlider()
+        slider.tag = 0
+        slider.addTarget(self, action: #selector(sliderDidChange(_:)), for: .valueChanged)
         return slider
     }()
     
@@ -101,6 +103,8 @@ class SettingsVC: UIViewController {
     
     lazy var emissionsSlider: UISlider = {
         let slider = UISlider()
+        slider.tag = 1
+        slider.addTarget(self, action: #selector(sliderDidChange(_:)), for: .valueChanged)
         return slider
     }()
     
@@ -120,8 +124,16 @@ class SettingsVC: UIViewController {
         }
     }
     
-    var calorieGoal: Int?
-    var emissionsGoal: Int?
+    var calorieGoal: Int? {
+        didSet {
+            calorieGoalLabel.text = "Calories Goal: \(calorieGoal ?? 0) cal/day"
+        }
+    }
+    var emissionsGoal: Int? {
+        didSet {
+            emissionsGoalLabel.text = "CO2 Emissions Goal: \(emissionsGoal ?? 0) g/day"
+        }
+    }
     
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -142,6 +154,18 @@ class SettingsVC: UIViewController {
         validateFields()
     }
     
+    @objc func sliderDidChange(_ sender: UISlider) {
+        switch sender.tag {
+        case 0:
+            calorieGoal = Int(sender.value)
+        case 1:
+            emissionsGoal = Int(sender.value)
+        default:
+            print("No such thing")
+            
+        }
+    }
+    
     //MARK: - Private Methods
     private func hideGoalStackView() {
         goalStackView.isHidden = true
@@ -151,7 +175,7 @@ class SettingsVC: UIViewController {
         
         do {
             //TODO: Do this for specific userID
-            currentUser = try AppUserPersistenceHelper.manager.getUser().first
+            currentUser = try AppUserPersistenceHelper.manager.getUser().last
         } catch {
             print(error)
         }
@@ -213,9 +237,22 @@ class SettingsVC: UIViewController {
     }
     
     private func configureSliders() {
-        //TODO: determine min and max values for sliders based on min and max calories
-        calorieSlider.value = 0.5
-        emissionsSlider.value = 0.5
+        let minCalPerDay: Float = 1500
+        let maxCalPerDay: Float = 3500
+        
+        calorieSlider.minimumValue = minCalPerDay
+        calorieSlider.maximumValue = maxCalPerDay
+        //TODO: Figure out why initial value isn't set
+        calorieSlider.value = (maxCalPerDay - minCalPerDay)/2
+        
+        
+//        let avgEmissionsPerDay: Float = Float(currentUser?.avgEmissionPerDay)
+        //TODO: update with actual number
+        let avgEmissionsPerDay: Float = 3000
+        
+        emissionsSlider.value = avgEmissionsPerDay
+        emissionsSlider.minimumValue = 0
+        emissionsSlider.maximumValue = avgEmissionsPerDay*2
     
     }
 }
