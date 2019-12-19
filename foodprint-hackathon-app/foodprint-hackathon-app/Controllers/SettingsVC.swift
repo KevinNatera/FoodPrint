@@ -11,7 +11,7 @@ import UIKit
 class SettingsVC: UIViewController {
     //MARK: - UI Objects
     //TODO: Refactor later to change input method (i.e. picker?)
-    //TODO: Style objects (text, slider color, button color, spacing)s
+    //TODO: Style objects (text, slider color, button color, spacings)
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome!"
@@ -19,25 +19,49 @@ class SettingsVC: UIViewController {
         return label
     }()
     
+    lazy var nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Enter name:"
+        label.textAlignment = .left
+        return label
+    }()
+    
     lazy var nameTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter Name"
+        textField.placeholder = "Name"
+        textField.borderStyle = .roundedRect
         textField.delegate = self
         return textField
+    }()
+    
+    lazy var heightLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Enter height (ft):"
+        label.textAlignment = .left
+        return label
     }()
     
     //TODO: Rework as picker rather than textField
     lazy var heightTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter Height"
+        textField.placeholder = "i.e. 5.5"
+        textField.borderStyle = .roundedRect
         textField.delegate = self
         return textField
+    }()
+    
+    lazy var weightLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Enter weight (lbs):"
+        label.textAlignment = .left
+        return label
     }()
     
     //TODO: Rework as picker rather than textField
     lazy var weightTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter Weight"
+        textField.placeholder = "i.e. 120.2"
+        textField.borderStyle = .roundedRect
         textField.delegate = self
         return textField
     }()
@@ -51,7 +75,7 @@ class SettingsVC: UIViewController {
     }()
     
     lazy var inputStackView: UIStackView = {
-       let stackView = UIStackView(arrangedSubviews: [nameTextField, heightTextField, weightTextField, submitButton])
+       let stackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, heightLabel, heightTextField, weightLabel, weightTextField, submitButton])
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
@@ -60,7 +84,7 @@ class SettingsVC: UIViewController {
     
     lazy var calorieGoalLabel: UILabel = {
         let label = UILabel()
-        label.text = "Calorie Goal"
+        label.text = "Calories/day Goal: \(calorieGoal ?? 0)"
         return label
     }()
     
@@ -71,7 +95,7 @@ class SettingsVC: UIViewController {
     
     lazy var emissionsGoalLabel: UILabel = {
         let label = UILabel()
-        label.text = "Emissions Goal"
+        label.text = "Emissions/day Goal: \(emissionsGoal ?? 0)"
         return label
     }()
     
@@ -89,16 +113,25 @@ class SettingsVC: UIViewController {
     }()
     
     //MARK: - Internal Properties
-    var currentUser: AppUser?
+    var currentUser: AppUser? {
+        didSet {
+            calorieGoal = currentUser?.caloriesPerDayGoal
+            emissionsGoal = currentUser?.avgEmissionPerDay
+        }
+    }
     
+    var calorieGoal: Int?
+    var emissionsGoal: Int?
     
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
-        
+    
         addSubviews()
         addConstraints()
+    
+        configureSliders()
         
         hideGoalStackView()
         loadCurrentUser()
@@ -124,13 +157,25 @@ class SettingsVC: UIViewController {
         }
         
         if currentUser != nil {
-            nameTextField.placeholder = currentUser!.name
-            heightTextField.placeholder = "\(currentUser!.height) ft"
-            weightTextField.placeholder = "\(currentUser!.weight) lbs"
-            
+            updateAppInfoForUser()
             //TODO: Change button text to "Update Info"
             showGoalStackView()
         }
+    }
+    
+    private func updateAppInfoForUser() {
+        welcomeLabel.text = "Welcome \(currentUser!.name)!"
+        
+        nameLabel.text = "Edit name:"
+        heightLabel.text = "Edit height:"
+        weightLabel.text = "Edit weight:"
+        
+        nameTextField.placeholder = "\(currentUser!.name)"
+        heightTextField.placeholder = "\(currentUser!.height) ft"
+        weightTextField.placeholder = "\(currentUser!.weight) lbs"
+        
+        calorieGoal = currentUser?.caloriesPerDayGoal
+        emissionsGoal = currentUser?.avgEmissionPerDay
     }
     
     private func showGoalStackView() {
@@ -165,6 +210,13 @@ class SettingsVC: UIViewController {
     private func showAlert(message: String) {
         //TODO: Add alert
         print("Alert:\(message)")
+    }
+    
+    private func configureSliders() {
+        //TODO: determine min and max values for sliders based on min and max calories
+        calorieSlider.value = 0.5
+        emissionsSlider.value = 0.5
+    
     }
 }
 
