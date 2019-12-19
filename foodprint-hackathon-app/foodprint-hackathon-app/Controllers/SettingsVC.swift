@@ -22,18 +22,23 @@ class SettingsVC: UIViewController {
     lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Enter Name"
+        textField.delegate = self
         return textField
     }()
     
+    //TODO: Rework as picker rather than textField
     lazy var heightTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Enter Height"
+        textField.delegate = self
         return textField
     }()
     
+    //TODO: Rework as picker rather than textField
     lazy var weightTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Enter Weight"
+        textField.delegate = self
         return textField
     }()
     
@@ -41,6 +46,7 @@ class SettingsVC: UIViewController {
         let button = UIButton()
         button.setTitle("Enter", for: .normal)
         button.setTitleColor(.blue, for: .normal)
+        button.addTarget(self, action: #selector(submitButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -85,6 +91,8 @@ class SettingsVC: UIViewController {
     //MARK: - Internal Properties
     var currentUser: AppUser?
     
+    
+    //MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
@@ -96,6 +104,12 @@ class SettingsVC: UIViewController {
         loadCurrentUser()
     }
     
+    //MARK: - Obj-C Functions
+    @objc func submitButtonPressed() {
+        validateFields()
+    }
+    
+    //MARK: - Private Methods
     private func hideGoalStackView() {
         goalStackView.isHidden = true
     }
@@ -103,6 +117,7 @@ class SettingsVC: UIViewController {
     private func loadCurrentUser() {
         
         do {
+            //TODO: Do this for specific userID
             currentUser = try AppUserPersistenceHelper.manager.getUser().first
         } catch {
             print(error)
@@ -113,6 +128,7 @@ class SettingsVC: UIViewController {
             heightTextField.placeholder = "\(currentUser!.height) ft"
             weightTextField.placeholder = "\(currentUser!.weight) lbs"
             
+            //TODO: Change button text to "Update Info"
             showGoalStackView()
         }
     }
@@ -121,6 +137,34 @@ class SettingsVC: UIViewController {
         goalStackView.isHidden = false
     }
     
+    private func validateFields() {
+        //TODO: Add if currentUser exists, REPLACE input instead of creating new user
+        guard let name = nameTextField.text,
+            let heightStr = heightTextField.text,
+            let weightStr = weightTextField.text else { showAlert(message: "All entries must be complete!"); return }
 
+        guard let height = Double(heightStr),
+            let weight = Double(weightStr) else { showAlert(message: "Double check height and weight entries!"); return }
+        
+        createNewUser(name: name, height: height, weight: weight)
+    }
+    
+    private func createNewUser(name: String, height: Double, weight: Double) {
+        let newUser = AppUser(name: name, height: height, weight: weight)
+        
+        do {
+            try AppUserPersistenceHelper.manager.saveUser(newUser: newUser)
+            print("User saved")
+        } catch {
+            print(error)
+        }
+        
+        //Pass currentUser to homescreen?
+    }
+    
+    private func showAlert(message: String) {
+        //TODO: Add alert
+        print("Alert:\(message)")
+    }
 }
 
