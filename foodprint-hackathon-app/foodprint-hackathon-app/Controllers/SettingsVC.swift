@@ -117,6 +117,7 @@ class SettingsVC: UIViewController {
     private func loadCurrentUser() {
         
         do {
+            //TODO: Do this for specific userID
             currentUser = try AppUserPersistenceHelper.manager.getUser().first
         } catch {
             print(error)
@@ -127,6 +128,7 @@ class SettingsVC: UIViewController {
             heightTextField.placeholder = "\(currentUser!.height) ft"
             weightTextField.placeholder = "\(currentUser!.weight) lbs"
             
+            //TODO: Change button text to "Update Info"
             showGoalStackView()
         }
     }
@@ -136,6 +138,7 @@ class SettingsVC: UIViewController {
     }
     
     private func validateFields() {
+        //TODO: Add if currentUser exists, REPLACE input instead of creating new user
         guard let name = nameTextField.text,
             let heightStr = heightTextField.text,
             let weightStr = weightTextField.text else { showAlert(message: "All entries must be complete!"); return }
