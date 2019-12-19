@@ -29,6 +29,18 @@ struct AppUserPersistenceHelper {
         }
     }
     
+    func updateUserFoodHistory(user: AppUser, food: Food) throws {
+        do {
+            var foodArray = user.foodHistory
+            foodArray.append(food)
+            let users = try getUser()
+            try persistenceHelper.replace(elements: users.filter { $0.bmr == user.bmr})
+            let newUser = AppUser(name: user.name, height: user.height, weight: user.weight, age: user.age, sex: user.sex)
+            newUser.foodHistory = foodArray
+            try persistenceHelper.save(newElement: newUser)
+        }
+    }
+    
     func updateUserCalorieGoal(user: AppUser, dailyCalorieGoal: Int) throws {
         do {
             let users = try getUser()
