@@ -48,16 +48,9 @@ class AppUser: Codable {
     //This should be the sum of all the emissions of Food in foodHistory
     var currentEmissions: Int? {
         var sum = 0.0
-<<<<<<< HEAD
-        if let food = self.foodHistory {
-            for i in food {
-                sum += i.carbonEmissionsGramsPerServing
-            }
-=======
         
         for i in self.foodHistory {
             sum += i.carbonEmissionsGramsPerServing
->>>>>>> 0a48f408447b4db5cd488386a733b7797fe383c3
         }
         return Int(sum)
     }
