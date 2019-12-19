@@ -14,22 +14,31 @@ class AppUser: Codable {
     var height: Double
     var weight: Double
     
-    var caloriesPerDayGoal: Int
-    var avgEmissionPerDay: Int = 2500 //2.5 tons 2500 kgs
-    //var foodHistory = [Food]
-    var currentCalories: Int = 50
-    var currentEmissions: Int = 20
+    let avgEmissionPerDay: Int = 2500 //2.5 tons 2500 kgs
     
-    init(name: String, height: Double , weight: Double, caloriesPerDayGoal: Int, avgEmissionPerDay: Int){
-        self.name = name
-        self.height = height
-        self.weight = weight
-        
-        self.caloriesPerDayGoal = caloriesPerDayGoal
-        self.avgEmissionPerDay = avgEmissionPerDay
+    //This should be a computed property based on BMI using height and weight
+    var caloriesPerDayGoal: Int {
+        return 50
+    }
+    
+    var foodHistory: [Food]?
+    
+    //This should be the sum of all the calories of Food in foodHistory
+    var currentCalories: Int? {
+        return 50
+    }
+    //This should be the sum of all the emissions of Food in foodHistory
+    var currentEmissions: Int? {
+        return 50
     }
     
     
+    
+    init(name: String, height: Double , weight: Double){
+        self.name = name
+        self.height = height
+        self.weight = weight
+    }
     
     
 }

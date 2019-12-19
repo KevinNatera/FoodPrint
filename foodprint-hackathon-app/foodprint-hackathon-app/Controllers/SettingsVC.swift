@@ -82,14 +82,45 @@ class SettingsVC: UIViewController {
         return stackView
     }()
     
+    //MARK: - Internal Properties
+    var currentUser: AppUser?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         
         addSubviews()
         addConstraints()
+        
+        hideGoalStackView()
+        loadCurrentUser()
     }
-
+    
+    private func hideGoalStackView() {
+        goalStackView.isHidden = true
+    }
+    
+    private func loadCurrentUser() {
+        
+        do {
+            currentUser = try AppUserPersistenceHelper.manager.getUser().first
+        } catch {
+            print(error)
+        }
+        
+        if currentUser != nil {
+            nameTextField.placeholder = currentUser!.name
+            heightTextField.placeholder = "\(currentUser!.height) ft"
+            weightTextField.placeholder = "\(currentUser!.weight) lbs"
+            
+            showGoalStackView()
+        }
+    }
+    
+    private func showGoalStackView() {
+        goalStackView.isHidden = false
+    }
+    
 
 }
 
