@@ -55,14 +55,17 @@ extension HomescreenVC {
             progressStackView.centerXAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.centerXAnchor),
             
             progressLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            progressLabel.bottomAnchor.constraint(equalTo: calorieProgressView.topAnchor, constant: -70),
             
-            calorieProgressView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            calorieProgressView.heightAnchor.constraint(equalTo: progressStackView.heightAnchor, multiplier: 0.4),
+            calorieProgressView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: -70),
+            calorieProgressView.heightAnchor.constraint(equalTo: progressStackView.heightAnchor, multiplier: 0.2),
             calorieProgressView.widthAnchor.constraint(equalTo: calorieProgressView.heightAnchor),
+            calorieProgressView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 80),
             
-            emissionsProgressView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            emissionsProgressView.heightAnchor.constraint(equalTo: progressStackView.heightAnchor, multiplier: 0.4),
-            emissionsProgressView.widthAnchor.constraint(equalTo: emissionsProgressView.heightAnchor)
+            emissionsProgressView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: 115),
+            emissionsProgressView.heightAnchor.constraint(equalTo: progressStackView.heightAnchor, multiplier: 0.2),
+            emissionsProgressView.widthAnchor.constraint(equalTo: emissionsProgressView.heightAnchor),
+            emissionsProgressView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 80)
             
         ])
     }

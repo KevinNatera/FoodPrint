@@ -15,7 +15,7 @@ class FoodDetailsVC: UIViewController {
     lazy var imageOutlet: UIImageView = {
         let image = UIImageView()
         //image.frame = CGRect(x: 80, y: 100, width: 250, height: 250)
-        image.backgroundColor = .blue
+        image.image = #imageLiteral(resourceName: "kissclipart-green-carbon-footprint-png-clipart-ecological-foot-38f626cbaf4ff037")
         return image
     }()
     
@@ -33,16 +33,15 @@ class FoodDetailsVC: UIViewController {
         //label.frame = CGRect(x: 0, y: 500, width: 420, height: 40)
         label.text = "Calories: "
         label.textAlignment = .center
-        label.backgroundColor = .blue
+//        label.backgroundColor = .blue
         return label
     }()
     
     lazy var servingsLabel: UILabel = {
         let label = UILabel()
-        //label.frame = CGRect(x: 0, y: 575, width: 170, height: 40)
         label.text = "Servings: "
         label.textAlignment = .left
-        label.backgroundColor = .blue
+//        label.backgroundColor = .blue
         return label
     }()
     
@@ -61,6 +60,7 @@ class FoodDetailsVC: UIViewController {
         label.textAlignment = .center
         label.text = "Total Calories: "
         label.backgroundColor = .blue
+
         return label
     }()
     
@@ -70,6 +70,7 @@ class FoodDetailsVC: UIViewController {
           label.textAlignment = .center
           label.text = "Total Emission: "
           label.backgroundColor = .blue
+
           return label
       }()
 
@@ -101,6 +102,7 @@ class FoodDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubViews()
+        view.backgroundColor = .lightGray
         setupConstraints()
     }
     
@@ -151,13 +153,13 @@ class FoodDetailsVC: UIViewController {
         
         NSLayoutConstraint.activate([
             imageOutlet.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            imageOutlet.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            imageOutlet.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            imageOutlet.heightAnchor.constraint(equalToConstant: 200),
+            imageOutlet.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:  0.5),
+            imageOutlet.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageOutlet.heightAnchor.constraint(equalTo: imageOutlet.widthAnchor),
             
             stackView.topAnchor.constraint(equalTo: imageOutlet.bottomAnchor, constant: 15),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 300),
             
             addButton.topAnchor.constraint(equalTo: stackView.bottomAnchor),
