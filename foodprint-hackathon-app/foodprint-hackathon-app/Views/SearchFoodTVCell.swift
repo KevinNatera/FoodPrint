@@ -25,6 +25,7 @@ class SearchFoodTVCell: UITableViewCell {
         label.backgroundColor = .lightGray
         //label.frame = CGRect(x: 200, y: 0, width: 250, height: 75)
         label.text = "caloriesPerServing"
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
@@ -34,6 +35,7 @@ class SearchFoodTVCell: UITableViewCell {
         label.backgroundColor = .lightGray
         //label.frame = CGRect(x: 200, y: 75, width: 250, height: 75)
         label.text = "emissionsPerServing"
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
