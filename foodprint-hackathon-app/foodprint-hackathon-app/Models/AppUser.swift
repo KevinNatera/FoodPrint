@@ -11,33 +11,78 @@ import Foundation
 class AppUser: Codable {
     
     var name: String
+    var age: Int
     var height: Double
     var weight: Double
+    var sex: String
+    var userId: UUID
+    var bmr: Double {
+        if self.sex == "male" {
+            let newWeight = 6.24 * weight
+            let newHeight = (12 * height) * 12.7
+            let newAge = 6.755 * Double(age)
+            return 66.47 + newWeight + newHeight - newAge
+        } else {
+            let newWeight = 4.35 * weight
+            let newHeight = (12 * height) * 4.7
+            let newAge = 4.7 * Double(age)
+            return 655.1 + newWeight + newHeight - newAge
+        }
+    }
     
-    let avgEmissionPerDay: Int = 2500 //2.5 tons 2500 kgs
+    let avgEmissionPerDay: Int = 2268 //2.5 tons 2268 kgs
     
     //This should be a computed property based on BMI using height and weight
     var caloriesPerDayGoal: Int {
-        return 50
+        return Int(bmr)
     }
     
     var foodHistory: [Food]?
     
     //This should be the sum of all the calories of Food in foodHistory
     var currentCalories: Int? {
-        return 50
+        var sum = 0
+        if let food = self.foodHistory {
+            for i in food {
+                sum += i.calories
+            }
+        }
+        return sum
     }
     //This should be the sum of all the emissions of Food in foodHistory
     var currentEmissions: Int? {
-        return 50
+        var sum = 0.0
+        if let food = self.foodHistory {
+            for i in food {
+                sum += i.carbonEmissionsKgPerServing
+            }
+        }
+        return Int(sum)
     }
     
-    
-    
-    init(name: String, height: Double , weight: Double){
+    func addToFoodHistory(food: Food) {
+        if self.foodHistory != nil {
+            self.foodHistory?.append(food)
+        } else {
+            self.foodHistory = [food]
+        }
+    }
+        
+    func changeSettings(name: String, height: Double, weight: Double, age: Int, sex: String) {
         self.name = name
         self.height = height
         self.weight = weight
+        self.age = age
+        self.sex = sex
+    }
+    
+    init(name: String, height: Double , weight: Double, age: Int, sex: String){
+        self.name = name
+        self.height = height
+        self.weight = weight
+        self.age = age
+        self.sex = sex
+        self.userId = UUID()
     }
     
     

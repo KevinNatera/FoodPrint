@@ -31,7 +31,7 @@ extension SettingsVC {
         NSLayoutConstraint.activate([
             welcomeLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             welcomeLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            welcomeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            welcomeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             welcomeLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
         
@@ -39,12 +39,23 @@ extension SettingsVC {
     
     private func setInputStackViewConstraints() {
         inputStackView.translatesAutoresizingMaskIntoConstraints = false
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        heightTextField.translatesAutoresizingMaskIntoConstraints = false
+        weightTextField.translatesAutoresizingMaskIntoConstraints = false
+        ageTextField.translatesAutoresizingMaskIntoConstraints = false
+        
         
         NSLayoutConstraint.activate([
-            inputStackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 30),
+            inputStackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 10),
             inputStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             inputStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            inputStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
+//            inputStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGxuxide.heightAnchor, multiplier: 0.5),
+            
+            nameTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.6),
+            heightTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.6),
+            weightTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.6),
+            ageTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.6)
+            
         ])
         
     }
