@@ -14,11 +14,22 @@ class AppUser: Codable {
     var height: Double
     var weight: Double
     
-    init(name: String, height: Double , weight: Double){
+    var caloriesPerDayGoal: Int
+    var avgEmissionPerDay: Int = 2500 //2.5 tons 2500 kgs
+    //var foodHistory = [Food]
+    var currentCalories: Int = 50
+    var currentEmissions: Int = 20
+    
+    init(name: String, height: Double , weight: Double, caloriesPerDayGoal: Int, avgEmissionPerDay: Int){
         self.name = name
         self.height = height
         self.weight = weight
+        
+        self.caloriesPerDayGoal = caloriesPerDayGoal
+        self.avgEmissionPerDay = avgEmissionPerDay
     }
+    
+    
     
     
 }
