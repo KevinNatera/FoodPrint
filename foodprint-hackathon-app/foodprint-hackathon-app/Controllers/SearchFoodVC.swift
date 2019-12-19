@@ -15,7 +15,8 @@ class SearchFoodVC: UIViewController {
     lazy var searchBar: UISearchBar = {
         let searchbar = UISearchBar()
         searchbar.delegate = self
-        //searchbar.frame = CGRect(x: 0, y: 100, width: 420, height: 40)
+        searchbar.showsBookmarkButton = true
+        searchbar.setImage(UIImage(systemName: "arrowtriangle.down.fill"), for: UISearchBar.Icon.bookmark, state: .normal)
         return searchbar
     }()
     
@@ -34,6 +35,14 @@ class SearchFoodVC: UIViewController {
         return navController
     }()
     
+    var searchString: String? = nil {
+        didSet{
+            self.searchTableView.reloadData()
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubViews()
@@ -49,37 +58,41 @@ class SearchFoodVC: UIViewController {
     }
     
     
-   private func setupConstraints(){
-       searchBar.translatesAutoresizingMaskIntoConstraints = false
-       searchTableView.translatesAutoresizingMaskIntoConstraints = false
-       
-       NSLayoutConstraint.activate([
-           searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-           searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-           searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-           searchBar.heightAnchor.constraint(equalToConstant: 50),
-           
-           searchTableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-           searchTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-           searchTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-           searchTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-           
-           
-       ])
-   }
+    private func setupConstraints(){
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchTableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            searchBar.heightAnchor.constraint(equalToConstant: 50),
+            
+            searchTableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            searchTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            searchTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            
+            
+        ])
+    }
+    
+    
+    
 }
 
 
 
 //MARK: - Extensions
-extension SearchFoodVC: UISearchBarDelegate {
+extension SearchFoodVC: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        
-        //searchCode
+        searchString = searchBar.text
     }
+    
 }
+
 
 
 extension SearchFoodVC: UITableViewDelegate, UITableViewDataSource {
@@ -90,18 +103,20 @@ extension SearchFoodVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "search") as! SearchFoodTVCell
-        let foods = Food.foodList[indexPath.row]
+        let theFoods = Food.foodList[indexPath.row]
         
-        cell.foodNameLabel.text = foods.name
-        cell.caloriesPerServingLabel.text = "\(foods.calories)"
-        cell.emissionsPerServingLabel.text = "\(foods.carbonEmissionsGramsPerServing)"
+        cell.foodNameLabel.text = theFoods.name
+        cell.caloriesPerServingLabel.text = "\(theFoods.calories)"
+        cell.emissionsPerServingLabel.text = "\(theFoods.carbonEmissionsGramsPerServing)"
+
+
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let foodDetailVC = FoodDetailsVC()
-        foodDetailVC.foodsDetail = Food.foodList[indexPath.row];
+        foodDetailVC.foodsDetail = Food.foodList[indexPath.row]
         self.navigationController?.pushViewController(foodDetailVC, animated: true)
         
     }
