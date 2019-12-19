@@ -41,63 +41,7 @@ class SearchFoodVC: UIViewController {
         }
     }
     
-    var allFood = Food.foodList
-    var foods: [Food] {
-        get {
-            guard let searchString = searchString else{
-                return Food.foodList
-            }
-            guard searchString != "" else {
-                
-                return Food.foodList
-            }
-            switch searchString{
-                
-            case "Meat":
-                let results =  Food.foodList.filter{$0.category.lowercased().contains(searchString)}
-                if results.count == 0 {
-                    searchBar.resignFirstResponder()
-                    return []
-                } else {
-                    return Food.foodList.filter{$0.category.lowercased().contains(searchString)}
-                }
-                
-            case "Vegetable":
-                let results =  Food.foodList.filter{$0.category.lowercased().contains(searchString)}
-                if results.count == 0 {
-                    searchBar.resignFirstResponder()
-                    return []
-                } else {
-                    
-                    return Food.foodList.filter{$0.name.lowercased().contains(searchString)}
-                }
-                
-            case "Dairy":
-                let results =  Food.foodList.filter{$0.category.lowercased().contains(searchString)}
-                if results.count == 0 {
-                    searchBar.resignFirstResponder()
-                    return []
-                } else {
-                    return Food.foodList.filter{$0.category.lowercased().contains(searchString)}
-                }
-                
-            case "Bread":
-                let results =  Food.foodList.filter{$0.category.lowercased().contains(searchString)}
-                if results.count == 0 {
-                    searchBar.resignFirstResponder()
-                    return []
-                } else {
-                    return Food.foodList.filter{$0.category.lowercased().contains(searchString)}
-                }
-                
-            default:
-                return allFood
-            }
-        }
-        set {
-            self.foods = allFood
-        }
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -154,12 +98,12 @@ extension SearchFoodVC: UISearchBarDelegate{
 extension SearchFoodVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foods.count
+        return Food.foodList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "search") as! SearchFoodTVCell
-        let theFoods = foods[indexPath.row]
+        let theFoods = Food.foodList[indexPath.row]
         
         cell.foodNameLabel.text = theFoods.name
         cell.caloriesPerServingLabel.text = "\(theFoods.calories)"
@@ -172,7 +116,7 @@ extension SearchFoodVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let foodDetailVC = FoodDetailsVC()
-        foodDetailVC.foodsDetail = foods[indexPath.row];
+        foodDetailVC.foodsDetail = Food.foodList[indexPath.row]
         self.navigationController?.pushViewController(foodDetailVC, animated: true)
         
     }

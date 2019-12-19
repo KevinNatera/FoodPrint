@@ -116,7 +116,7 @@ class FoodDetailsVC: UIViewController {
     private func setText(amount: Double ){
         foodNameLabel.text = "Name: \(foodsDetail.name)"
         caloriesPerServingLabel.text = "Calories: \(foodsDetail.calories * Int(amount))"
-        servingsLabel.text = "Servings: \(foodsDetail.servings ?? 0)"
+        servingsLabel.text = "Servings: \(foodsDetail.servings ?? 1)"
         totalCaloriesLabel.text = "Total Calories: \(foodsDetail.calories * Int(amount))"
         totalEmissionsLabel.text = "Total Emission: \(foodsDetail.carbonEmissionsGramsPerServing * amount)"
     }
@@ -175,12 +175,9 @@ class FoodDetailsVC: UIViewController {
 extension FoodDetailsVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
+        self.totalAmount = textField.text ?? "1"
         //update UI Code
         return true
     }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.totalAmount = textField.text ?? "1"
-    }
+
 }
