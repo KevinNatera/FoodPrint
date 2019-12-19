@@ -10,6 +10,7 @@ import UIKit
 
 class SearchFoodVC: UIViewController {
     
+    
     //MARK: - Properties
     lazy var searchBar: UISearchBar = {
         let searchbar = UISearchBar()
@@ -28,6 +29,10 @@ class SearchFoodVC: UIViewController {
         return tableView
     }()
     
+    lazy var foodSearchVC: UINavigationController = {
+        let navController = UINavigationController(rootViewController: SearchFoodVC())
+        return navController
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +48,25 @@ class SearchFoodVC: UIViewController {
         view.addSubview(searchTableView)
     }
     
+    
+   private func setupConstraints(){
+       searchBar.translatesAutoresizingMaskIntoConstraints = false
+       searchTableView.translatesAutoresizingMaskIntoConstraints = false
+       
+       NSLayoutConstraint.activate([
+           searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+           searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+           searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+           searchBar.heightAnchor.constraint(equalToConstant: 50),
+           
+           searchTableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+           searchTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+           searchTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+           searchTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+           
+           
+       ])
+   }
 }
 
 
@@ -55,44 +79,30 @@ extension SearchFoodVC: UISearchBarDelegate {
         
         //searchCode
     }
-    
-    private func setupConstraints(){
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchTableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: view.leftAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: view.rightAnchor),
-            searchBar.heightAnchor.constraint(equalToConstant: 50),
-            
-            searchTableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            searchTableView.leadingAnchor.constraint(equalTo: view.leftAnchor),
-            searchTableView.trailingAnchor.constraint(equalTo: view.rightAnchor),
-            searchTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            
-            
-        ])
-    }
 }
 
 
 extension SearchFoodVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return Food.foodList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "search") as! SearchFoodTVCell
+        let foods = Food.foodList[indexPath.row]
+        
+        cell.foodNameLabel.text = foods.name
+        cell.caloriesPerServingLabel.text = "\(foods.calories)"
+        cell.emissionsPerServingLabel.text = "\(foods.carbonEmissionsKgPerServing)"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let foodDetailVC = FoodDetailsVC()
-                foodDetailVC.modalPresentationStyle = .fullScreen
-                present(foodDetailVC, animated: true)
+        foodDetailVC.foodsDetail = Food.foodList[indexPath.row];
+        self.navigationController?.pushViewController(foodDetailVC, animated: true)
         
     }
 }
